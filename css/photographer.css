@@ -62,16 +62,29 @@
     object-fit: cover;
 }
 
+section a {
+    text-decoration: none;
+}
+
 article img {
-    height: 300px;
-    width: 300px;
+    height: 350px;
+    width: 350px;
     object-fit: cover;
+    border-radius:5px;
 }
 
 article video {
-    height: 300px;
-    width: 300px;
+    height: 350px;
+    width: 350px;
     object-fit: cover;
+    border-radius: 5px;
+}
+
+article h3 {
+    margin-top: 10px;
+    margin-bottom: 40px;
+    color: #901C1C;
+    font-size: 1.5rem;
 }
 
 .contact_button {
@@ -148,7 +161,8 @@ form input {
     /*max-width: 1240px;*/
     /*flex-wrap: wrap;*/
     display: grid;
-    grid-template-columns: 413px 414px 413px;
+    grid-template-columns: 350px 350px 35px;
+    grid-column-gap: 95px;
 }
 
 #tri {
