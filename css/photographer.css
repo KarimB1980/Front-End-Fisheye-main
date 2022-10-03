@@ -80,11 +80,18 @@ article video {
     border-radius: 5px;
 }
 
-article h3 {
+article div h3 {
     margin-top: 10px;
     margin-bottom: 40px;
     color: #901C1C;
     font-size: 1.5rem;
+}
+
+.photograph-header h3 {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 1.2rem;
+    color: #525252;
 }
 
 .contact_button {
@@ -155,18 +162,82 @@ form input {
 }
 
 #realisations {
-    /*display: flex;
-    flex-direction: row;*/
-    margin: 100px;
-    /*max-width: 1240px;*/
-    /*flex-wrap: wrap;*/
-    display: grid;
-    grid-template-columns: 350px 350px 35px;
-    grid-column-gap: 95px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 86%;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+}
+
+.titrecoeur {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.like {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 50px;
+}
+
+.like i {
+    vertical-align: middle;
+    color: #901C1C;
+    font-size: 1.5rem;
+}
+
+.like h3 {
+    margin: 0;
+    margin-right: 5px;
 }
 
 #tri {
     margin-left: 100px;
     margin-bottom: 100px;
     margin-top: 30px;
+}
+
+.liketarif {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 1.5rem;
+    background-color: #D3573C;
+    border-radius: 5px 5px 0 0;
+    position: relative;
+    color: black;
+}
+.likes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+/*.liketarif {
+
+}*/
+.tarifJour {
+    display: flex;
+    flex-direction: row;
+}
+.likes h3 {
+    margin-right: 5px;
+  }
+
+.blocliketarif {
+    position: fixed;
+    z-index: 1;
+    left:68%;
+    top: 92%;
+    width: 30%;
+}
+
+.nombrelike:hover {
+    cursor: pointer;
 }

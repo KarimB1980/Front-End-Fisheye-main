@@ -1,10 +1,10 @@
 export function photographerFactory(data) {
 //  const { name, portrait } = data;
 
-var p = window.location.pathname;
+  var p = window.location.pathname;
 
-if (p.match(/^\/?index.html/)) {
-  const { name, portrait, city, country, tagline, price, id } = data;
+  if (p.match(/^\/?index.html/)) {
+    const { name, portrait, city, country, tagline, price, id } = data;
 
     const picture = `assets/photographers/${portrait}`;
 
@@ -49,26 +49,75 @@ if (p.match(/^\/?index.html/)) {
     return { name, picture, getUserCardDOM }
   }
 
-    else if (p.match(/^\/?photographer.html/)) {
+  else if (p.match(/^\/?photographer.html/)) {
 
-    const { name, portrait, city, country, tagline } = data;
-    let entete = "";
+    const { name, portrait, city, country, tagline, price } = data;
 
-    //entete += `<div class="photograph-header">`;
-    entete +=   `<article>`;
-    entete +=     `<div>`;
-    entete +=       `<header>`;
-    entete +=         `<h1>${name}</h1>`;
-    entete +=       `</header>`;
-    entete +=       `<h2>${city}, ${country}</h2>`;
-    entete +=       `<h3>${tagline}</h3>`;
-    entete +=     `</div>`;
-    entete +=     `<button class="contact_button" onclick="displayModal()">Contactez-moi</button>`;
-    entete +=     `<img src="assets/photographers/${portrait}" alt="">`;
-    entete +=   `</article>`;
-    //entete += `</div>`;
+    let htmlPhotographers = "";
 
-    document.querySelector(".photograph-header").innerHTML = entete;
+    htmlPhotographers +=`<header>`
+    htmlPhotographers +=`  <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"></a>`
+    htmlPhotographers +=`</header>`
+    htmlPhotographers +=`<main id="main">`
+    htmlPhotographers +=`  <div class="photograph-header">`
+    htmlPhotographers +=`    <article>`;
+    htmlPhotographers +=`      <div>`;
+    htmlPhotographers +=`        <header>`;
+    htmlPhotographers +=`          <h1>${name}</h1>`;
+    htmlPhotographers +=`        </header>`;
+    htmlPhotographers +=`        <h2>${city}, ${country}</h2>`;
+    htmlPhotographers +=`        <h3>${tagline}</h3>`;
+    htmlPhotographers +=`      </div>`;
+    htmlPhotographers +=`      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>`;
+    htmlPhotographers +=`      <img src="assets/photographers/${portrait}" alt="">`;
+    htmlPhotographers +=`    </article>`;
+    htmlPhotographers +=`  </div>`
+    htmlPhotographers +=`</main>`
+    htmlPhotographers +=`<div id="tri">`
+    htmlPhotographers +=` <label for="order_by">Trier par</label>`
+    htmlPhotographers +=` <select name="my_html_select_box" id="order_by">`
+    htmlPhotographers +=`   <option>Popularité</option>`
+    htmlPhotographers +=`   <option>Date</option>`
+    htmlPhotographers +=`   <option>Titre</option>`
+    htmlPhotographers +=` </select>`
+    htmlPhotographers +=`</div>`
+    htmlPhotographers +=`<section id="realisations">`
+    htmlPhotographers +=`</section>`
+    htmlPhotographers +=`<div class="blocliketarif" style="display: block;">`
+    htmlPhotographers +=`  <div class="liketarif">`
+    htmlPhotographers +=`    <div class="likes">`
+    htmlPhotographers +=`      <h3 class="nombreLike"></h3>`
+    htmlPhotographers +=`      <div class="coeur" aria-label="likes">`
+    htmlPhotographers +=`        <i class="fa-solid fa-heart"></i>`
+    htmlPhotographers +=`      </div>`
+    htmlPhotographers +=`    </div>`
+    htmlPhotographers +=`    <div class="tarifJour">`
+    htmlPhotographers +=`      <h3 class="tarifParJour"></h3><h3>${price} € / jour</h3>`
+    htmlPhotographers +=`    </div>`
+    htmlPhotographers +=`  </div>`
+    htmlPhotographers +=`</div>`
+    htmlPhotographers +=`<div id="contact_modal">`
+    htmlPhotographers +=`  <div class="modal">`
+    htmlPhotographers +=`    <header>`
+    htmlPhotographers +=`      <h2>Contactez-moi</h2>`
+    htmlPhotographers +=`      <img src="assets/icons/close.svg" alt="Contact Me" onclick="closeModal()">`
+    htmlPhotographers +=`    </header>`
+    htmlPhotographers +=`    <form>`
+    htmlPhotographers +=`      <div>`
+    htmlPhotographers +=`        <label>Prénom</label>`
+    htmlPhotographers +=`      </div>`
+    htmlPhotographers +=`      <button class="contact_button">Envoyer</button>`
+    htmlPhotographers +=`    </form>`
+    htmlPhotographers +=`  </div>`
+    htmlPhotographers +=`</div>`
+    htmlPhotographers +=`<script src="/scripts/pages/photographer.js" type="module"></script>`
+    htmlPhotographers +=`<script src="/scripts/utils/contactForm.js"></script>`
+
+    // Injection du code html dans le body
+    document.querySelector("#body").innerHTML = htmlPhotographers;
   }
+
+
 }
+
 
