@@ -73,14 +73,18 @@ export function photographerFactory(data) {
     htmlPhotographers +=`    </article>`;
     htmlPhotographers +=`  </div>`
     htmlPhotographers +=`</main>`
-    htmlPhotographers +=`<div id="tri">`
-    htmlPhotographers +=` <label for="order_by">Trier par</label>`
-    htmlPhotographers +=` <select name="my_html_select_box" id="order_by">`
-    htmlPhotographers +=`   <option>Popularité</option>`
-    htmlPhotographers +=`   <option>Date</option>`
-    htmlPhotographers +=`   <option>Titre</option>`
-    htmlPhotographers +=` </select>`
-    htmlPhotographers +=`</div>`
+    htmlPhotographers +=`<nav>`
+    htmlPhotographers +=`  <div class="menu">`
+    htmlPhotographers +=`    <label for="sous-menu">Trier par</label>`
+    htmlPhotographers +=`    <ul class="sous-menu" tabindex="0">`
+    htmlPhotographers +=`      <li tabindex="0" id="popularite"><p> Popularité <i class="fa fa-angle-up" aria-hidden="true"></i></p><li>`
+    htmlPhotographers +=`      <div class="espace"></div>`
+    htmlPhotographers +=`      <li tabindex="0" id="date">Date<li>`
+    htmlPhotographers +=`      <div class="espace"></div>`
+    htmlPhotographers +=`      <li tabindex="0" id="titre">Titre<li>`
+    htmlPhotographers +=`    </ul>`
+    htmlPhotographers +=`  </div>`
+    htmlPhotographers +=`</nav>`
     htmlPhotographers +=`<section id="realisations">`
     htmlPhotographers +=`</section>`
     htmlPhotographers +=`<div class="blocliketarif" style="display: block;">`
@@ -110,14 +114,15 @@ export function photographerFactory(data) {
     htmlPhotographers +=`    </form>`
     htmlPhotographers +=`  </div>`
     htmlPhotographers +=`</div>`
+    htmlPhotographers +=`<div id="lightbox" class="modal">`
+    htmlPhotographers +=`<div class="contenu-lightbox">`
+    htmlPhotographers +=`</div>`
+    //htmlPhotographers +=`<script src="/scripts/utils/lightbox.js"></script>`
+    htmlPhotographers +=`</div>`
     htmlPhotographers +=`<script src="/scripts/pages/photographer.js" type="module"></script>`
-    htmlPhotographers +=`<script src="/scripts/utils/contactForm.js"></script>`
+    //htmlPhotographers +=`<script src="/scripts/utils/contactForm.js"></script>`
 
     // Injection du code html dans le body
     document.querySelector("#body").innerHTML = htmlPhotographers;
   }
-
-
 }
-
-

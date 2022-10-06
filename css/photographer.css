@@ -6,6 +6,7 @@
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+    margin-bottom: 100px;
     display: grid;
     /*flex-direction: row;
     justify-content: space-around;*/
@@ -27,11 +28,6 @@
     font-size: 1.5rem;
     color: #901C1C;
     margin: 0;
-}
-
-.photograph-header h3 {
-    font-size: 1rem;
-    color: #525252;
 }
 
 .photograph-header article {
@@ -238,6 +234,185 @@ form input {
     width: 30%;
 }
 
-.nombrelike:hover {
+.like:hover {
     cursor: pointer;
+}
+
+
+/* Propriétés du menu de tri */
+* {
+    list-style-type: none;
+}
+nav {
+    text-align: center;
+}
+/*.menu {
+display: inline-block;
+}*/
+.menu > ul {
+    line-height: 50px;
+    cursor: pointer;
+    font-size: 20px;
+    text-align: left;
+    margin-top: 0;
+}
+.sous-menu {
+    transform: scale(0.2);
+    transform-origin: top left;
+    transition: all 300ms ease-in-out;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    background-color: #901C1C;
+    width: 150px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.sous-menu li {
+    font-size: 20px;
+    color: white;
+    transform: scale(0);
+    transition: all 300ms ease-in-out;
+    text-align: start;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.sous-menu li p {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0;
+    margin-top: 5px;
+}
+.espace {
+    height: 2px;
+    background-color: white;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+.sous-menu li:hover,
+.sous-menu li:focus {
+    background: #D3573C;
+}
+
+.sous-menu:hover,
+.sous-menu:focus {
+    transform: scale(1);
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    margin-left: 100px;
+    margin-top: 20px;
+    position: absolute;
+    z-index: 1;
+    left:0;
+    top: 400px;
+}
+
+.sous-menu:hover li,
+.sous-menu:focus li {
+    transform: scale(1);
+}
+
+.menu label {
+    margin-right: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: black;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+/* Lightbox */
+/* Arrière plan */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+    
+/* Contenu de la lightbox */
+.contenu-lightbox {
+    background-color: white;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Le bouton fermeture */
+.fermer {
+    color: #901C1C;
+    position: relative;
+    top: 100px;
+    left: 370px;
+    font-size: 90px;
+    transition: 0.6s ease;
+}
+
+.fermer:hover,
+.fermer:focus {
+    background-color: #D3573C;
+    color: black;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.image-lightbox {
+    display: none;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.imagetitre img, .imagetitre video {
+    width: 600px;
+    height: 600px;
+    margin: 60px;
+    margin-bottom: 10px;
+    object-fit:cover;
+}
+
+.imagePrecSuiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+/* Boutons précédant et suivant */
+.precedant,
+.suivant {
+    cursor: pointer;
+    color: #901C1C;
+    font-weight: bold;
+    font-size: 50px;
+    transition: 0.6s ease;
+    border-radius: 3px;
+}
+
+.precedant:hover,
+.suivant:hover {
+    background-color: #D3573C;
+    color: black;
+    border-radius: 3px 3px 3px 3px;
+}
+
+.titre-lightbox {
+    color: #901C1C;
+    font-size: 20px;
+    padding: 8px 12px;
+    width: 600px;
+    text-align: left;
+    margin-left: 75px;
 }
