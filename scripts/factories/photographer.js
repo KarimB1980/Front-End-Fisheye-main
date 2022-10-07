@@ -100,7 +100,7 @@ export function photographerFactory(data) {
     htmlPhotographers +=`    </div>`
     htmlPhotographers +=`  </div>`
     htmlPhotographers +=`</div>`
-    htmlPhotographers +=`<div id="lightbox" class="modal">`
+    htmlPhotographers +=`<div id="lightbox" class="modal-lightbox">`
     htmlPhotographers +=` <div class="contenu-lightbox">`
     htmlPhotographers +=` </div>`
     htmlPhotographers +=`</div>`

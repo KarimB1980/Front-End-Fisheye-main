@@ -1,5 +1,12 @@
 #contact_modal {
     display: none;
+    position: fixed;
+    z-index: 1;
+    /*left:50%;*/
+    top: 40%;
+    width: 80%;   
+    margin-left: 10%;
+    margin-right: 10%; 
 }
 
 .photograph-header {
@@ -330,7 +337,7 @@ display: inline-block;
 /*----------------------------------------------------------------------------------------------------------------------*/
 /* Lightbox */
 /* Arrière plan */
-.modal {
+.modal-lightbox {
     display: none;
     position: fixed;
     z-index: 1;
