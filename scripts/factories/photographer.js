@@ -112,7 +112,14 @@ export function photographerFactory(data) {
     htmlPhotographers +=`    </header>`
 		htmlPhotographers +=`		<form>`
 		htmlPhotographers +=`			<div>`
-		htmlPhotographers +=`				<label>Prénom</label>`
+		htmlPhotographers +=`				<label for="prenom">Prénom</label>`
+    htmlPhotographers +=`       <input type="text" id="prenom" name="prenom" required minlength="2" maxlength="100">`
+    htmlPhotographers +=`				<label for="nom">Nom</label>`
+    htmlPhotographers +=`       <input type="text" id="nom" name="nom" required minlength="2" maxlength="100">`
+		htmlPhotographers +=`				<label for="email">Email</label>`
+    htmlPhotographers +=`       <input type="text" id="email" name="email" required minlength="2" maxlength="100">`
+		htmlPhotographers +=`				<label for="message">Votre message</label>`
+    htmlPhotographers +=`       <input type="text" id="message" name="message" required minlength="2" maxlength="100">`
 		htmlPhotographers +=`			</div>`
     htmlPhotographers +=`      <button class="contact_button">Envoyer</button>`
 		htmlPhotographers +=`		</form>`
