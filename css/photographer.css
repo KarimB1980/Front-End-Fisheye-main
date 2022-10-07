@@ -75,6 +75,9 @@ article img {
     object-fit: cover;
     border-radius:5px;
 }
+article img:hover {
+    cursor: pointer;
+}
 
 article video {
     height: 350px;

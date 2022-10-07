@@ -127,6 +127,8 @@ export function mediaFactory() {
           // Injection du nouveau code html dans le DOM
           let idRealisations = document.querySelector('#realisations')
           idRealisations.innerHTML = listeMediaPopularite;
+
+          like();
         }
       )
 
@@ -162,6 +164,8 @@ export function mediaFactory() {
           // Injection du nouveau code html dans le DOM
           let idRealisations = document.querySelector('#realisations')
           idRealisations.innerHTML = listeMediaTitre;
+
+          like();
         }
       )
 
@@ -196,6 +200,8 @@ export function mediaFactory() {
           // Injection du nouveau code html dans le DOM
           let idRealisations = document.querySelector('#realisations')
           idRealisations.innerHTML = listeMediaDate;
+
+          like();
         }
       )
 
@@ -206,7 +212,7 @@ export function mediaFactory() {
           {
             coeur.addEventListener("click", () => 
               {
-                console.log("coeur ça marche");
+                //console.log("coeur ça marche");
                 // Incrémentation du nombre de like pour le media sélectionné
                 let coeurlike = coeur.firstChild;
                 var text = coeurlike.textContent;
