@@ -24,6 +24,25 @@ export function mediaFactory() {
       for (let i = 0; i < medias.length; i++) {
         // Affichage des réalisations du photographe
         if (medias[i].photographerId == id) {
+
+          // Calcul de la somme des like et injection du résultat dans le DOM
+          totalLikePhotos.push(medias[i].likes);
+          const reducers = (accumulator, currentValue) => accumulator + currentValue;
+          let totalLike = totalLikePhotos.reduce(reducers);
+          console.log(totalLike);
+
+          document.querySelector('.nombreLike').innerHTML = totalLike;
+
+          let donneesmediaphotographer = {
+            title: medias[i].title,
+            likes: medias[i].likes,
+            date: medias[i].date,
+            video: medias[i].video,
+            image: medias[i].image
+          }
+          mediaPhotographer.push(donneesmediaphotographer);
+          //console.log(mediaPhotographer);
+
           listeMedia +=   '<article>';
 
           if (medias[i].video) {
@@ -43,47 +62,32 @@ export function mediaFactory() {
           listeMedia +=         `</div>`
           listeMedia +=       `</div>`;
           listeMedia +=   `</article>`;
-
-          // Calcul de la somme des like et injection du résultat dans le DOM
-          totalLikePhotos.push(medias[i].likes);
-          const reducers = (accumulator, currentValue) => accumulator + currentValue;
-          let totalLike = totalLikePhotos.reduce(reducers);
-          console.log(totalLike);
-
-          document.querySelector('.nombreLike').innerHTML = totalLike;
-
-          let donneesmediaphotographer = {
-            title: medias[i].title,
-            likes: medias[i].likes,
-            date: medias[i].date,
-            video: medias[i].video,
-            image: medias[i].image
-          }
-          mediaPhotographer.push(donneesmediaphotographer);
-          console.log(mediaPhotographer);
-
-
-          mediaLightBox += `<div class="image-lightbox">`
-          mediaLightBox += `  <span class="fermer" onclick="fermerModal()">&times;</span>`
-          mediaLightBox += `  <div class="imagetitre">`
-          mediaLightBox += `    <div class="imagePrecSuiv">`
-          mediaLightBox += `      <a class="precedant" onclick="plusImages(-1)">&#10094;</a>`
-
-          if (medias[i].video) {
-            mediaLightBox +=       `<video controls><source src="assets/images/${medias[i].video}" type="video/mp4"></video>`;
-          }
-          if (medias[i].image) {
-            mediaLightBox +=       `<img src="assets/images/${medias[i].image}" alt="Lilac breasted roller">`;
-          }
-
-          mediaLightBox += `      <a class="suivant" onclick="plusImages(1)">&#10095;</a>`
-          mediaLightBox += `    </div>`
-          mediaLightBox += `    <div class="titre-lightbox">${medias[i].title}</div>`
-          mediaLightBox += `  </div>`
-          mediaLightBox += `</div>`
-
         }
       }
+      console.log(mediaPhotographer);
+
+      for (let i = 0; i < mediaPhotographer.length; i++) {
+
+        mediaLightBox += `<div class="image-lightbox">`
+        mediaLightBox += `  <span class="fermer" onclick="fermerModal()">&times;</span>`
+        mediaLightBox += `  <div class="imagetitre">`
+        mediaLightBox += `    <div class="imagePrecSuiv">`
+        mediaLightBox += `      <a class="precedant" onclick="plusImages(-1)">&#10094;</a>`
+
+        if (mediaPhotographer[i].video) {
+          mediaLightBox +=       `<video controls><source src="assets/images/${mediaPhotographer[i].video}" type="video/mp4"></video>`;
+        }
+        if (mediaPhotographer[i].image) {
+          mediaLightBox +=       `<img src="assets/images/${mediaPhotographer[i].image}" alt="Lilac breasted roller">`;
+        }
+
+        mediaLightBox += `      <a class="suivant" onclick="plusImages(1)">&#10095;</a>`
+        mediaLightBox += `    </div>`
+        mediaLightBox += `    <div class="titre-lightbox">${mediaPhotographer[i].title}</div>`
+        mediaLightBox += `  </div>`
+        mediaLightBox += `</div>`
+      }
+      
       // Injection du nouveau code html dans le DOM
       const a = document.querySelector('#realisations')
       a.insertAdjacentHTML('beforeend', listeMedia);
