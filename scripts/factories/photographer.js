@@ -100,23 +100,9 @@ export function photographerFactory(data) {
     htmlPhotographers +=`    </div>`
     htmlPhotographers +=`  </div>`
     htmlPhotographers +=`</div>`
-    /*htmlPhotographers +=`<div id="contact_modal">`
-    htmlPhotographers +=`  <div class="modal">`
-    htmlPhotographers +=`    <header>`
-    htmlPhotographers +=`      <h2>Contactez-moi</h2>`
-    htmlPhotographers +=`      <img src="assets/icons/close.svg" alt="Contact Me" onclick="closeModal()">`
-    htmlPhotographers +=`    </header>`
-    htmlPhotographers +=`    <form>`
-    htmlPhotographers +=`      <div>`
-    htmlPhotographers +=`        <label>Prénom</label>`
-    htmlPhotographers +=`      </div>`
-    htmlPhotographers +=`      <button class="contact_button">Envoyer</button>`
-    htmlPhotographers +=`    </form>`
-    htmlPhotographers +=`  </div>`
-    htmlPhotographers +=`</div>`*/
     htmlPhotographers +=`<div id="lightbox" class="modal">`
-    htmlPhotographers +=`<div class="contenu-lightbox">`
-    htmlPhotographers +=`</div>`
+    htmlPhotographers +=` <div class="contenu-lightbox">`
+    htmlPhotographers +=` </div>`
     htmlPhotographers +=`</div>`
     htmlPhotographers +=`<div id="contact_modal">`
 		htmlPhotographers +=`	<div class="modal">`

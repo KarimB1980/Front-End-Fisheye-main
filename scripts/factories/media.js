@@ -41,32 +41,32 @@ export function mediaFactory() {
             image: medias[i].image
           }
           mediaPhotographer.push(donneesmediaphotographer);
-          //console.log(mediaPhotographer);
-
-          listeMedia +=   '<article>';
-
-          if (medias[i].video) {
-            listeMedia +=       `<video controls><source src="assets/images/${medias[i].video}" type="video/mp4" onclick="ouvrirModal();imageActuelle(${1+i})"></video>`;
-          }
-          if (medias[i].image) {
-            listeMedia +=       `<img src="assets/images/${medias[i].image}" onclick="ouvrirModal();imageActuelle(${1+i})" alt="Lilac breasted roller, closeup view ">`;
-          }
-
-          listeMedia +=       `<div class="titrecoeur">`;
-          listeMedia +=         `<h3 class="productName">${medias[i].title}</h3>`;
-          listeMedia +=         `<div class="like">`;
-          listeMedia +=           `<h3 class="nombrelike">${medias[i].likes}</h3>`;
-          listeMedia +=           `<div class="coeur" aria-label="likes">`;
-          listeMedia +=             `<i class="fa-solid fa-heart"></i>`;
-          listeMedia +=           `</div>`;
-          listeMedia +=         `</div>`
-          listeMedia +=       `</div>`;
-          listeMedia +=   `</article>`;
         }
       }
       console.log(mediaPhotographer);
 
       for (let i = 0; i < mediaPhotographer.length; i++) {
+
+        listeMedia +=   '<article>';
+
+        if (mediaPhotographer[i].video) {
+          listeMedia +=       `<video controls><source src="assets/images/${mediaPhotographer[i].video}" type="video/mp4" onclick="ouvrirModal();imageActuelle(${1+i})"></video>`;
+        }
+        if (mediaPhotographer[i].image) {
+          listeMedia +=       `<img src="assets/images/${mediaPhotographer[i].image}" onclick="ouvrirModal();imageActuelle(${1+i})" alt="Lilac breasted roller, closeup view ">`;
+        }
+
+        listeMedia +=       `<div class="titrecoeur">`;
+        listeMedia +=         `<h3 class="productName">${mediaPhotographer[i].title}</h3>`;
+        listeMedia +=         `<div class="like">`;
+        listeMedia +=           `<h3 class="nombrelike">${mediaPhotographer[i].likes}</h3>`;
+        listeMedia +=           `<div class="coeur" aria-label="likes">`;
+        listeMedia +=             `<i class="fa-solid fa-heart"></i>`;
+        listeMedia +=           `</div>`;
+        listeMedia +=         `</div>`
+        listeMedia +=       `</div>`;
+        listeMedia +=   `</article>`;
+
 
         mediaLightBox += `<div class="image-lightbox">`
         mediaLightBox += `  <span class="fermer" onclick="fermerModal()">&times;</span>`
