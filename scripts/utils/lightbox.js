@@ -10,6 +10,7 @@ function fermerModal() {
 
 let imageIndex = 1;
 visualiserImage(imageIndex);
+
 // Fonction image précédente/suivante
 function plusImages(n) {
   visualiserImage(imageIndex += n);
@@ -22,12 +23,12 @@ function imageActuelle(n) {
 
 // Fonction visualisation de l'image
 function visualiserImage(n) {
-  let j;
+  let i;
   let images = document.getElementsByClassName("image-lightbox");
   if (n > images.length) {imageIndex = 1}
   if (n < 1) {imageIndex = images.length}
-  for (j = 0; j < images.length; j++) {
-    images[j].style.display = "none";
+  for (i = 0; i < images.length; i++) {
+    images[i].style.display = "none";
   }
   images[imageIndex-1].style.display = "block";
 }

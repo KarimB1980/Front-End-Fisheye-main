@@ -24,14 +24,13 @@ export function mediaFactory() {
       for (let i = 0; i < medias.length; i++) {
         // Affichage des réalisations du photographe
         if (medias[i].photographerId == id) {
-          //listeMedia += `<a href="./photographer.html?id=${medias[i].id}">`;
           listeMedia +=   '<article>';
 
           if (medias[i].video) {
-            listeMedia +=       `<video controls><source src="assets/images/${medias[i].video}" type="video/mp4" onclick="ouvrirModal();imageActuelle(${i})"></video>`;
+            listeMedia +=       `<video controls><source src="assets/images/${medias[i].video}" type="video/mp4" onclick="ouvrirModal();imageActuelle(${1+i})"></video>`;
           }
           if (medias[i].image) {
-            listeMedia +=       `<img src="assets/images/${medias[i].image}" onclick="ouvrirModal();imageActuelle(${i})" alt="Lilac breasted roller, closeup view ">`;
+            listeMedia +=       `<img src="assets/images/${medias[i].image}" onclick="ouvrirModal();imageActuelle(${1+i})" alt="Lilac breasted roller, closeup view ">`;
           }
 
           listeMedia +=       `<div class="titrecoeur">`;
@@ -44,7 +43,6 @@ export function mediaFactory() {
           listeMedia +=         `</div>`
           listeMedia +=       `</div>`;
           listeMedia +=   `</article>`;
-          //listeMedia += `</a>`;
 
           // Calcul de la somme des like et injection du résultat dans le DOM
           totalLikePhotos.push(medias[i].likes);
@@ -72,10 +70,10 @@ export function mediaFactory() {
           mediaLightBox += `      <a class="precedant" onclick="plusImages(-1)">&#10094;</a>`
 
           if (medias[i].video) {
-            mediaLightBox +=       `<video controls><source src="assets/images/${medias[i].video}" type="video/mp4" onclick="ouvrirModal();imageActuelle(${i})"></video>`;
+            mediaLightBox +=       `<video controls><source src="assets/images/${medias[i].video}" type="video/mp4"></video>`;
           }
           if (medias[i].image) {
-            mediaLightBox +=       `<img src="assets/images/${medias[i].image}" onclick="ouvrirModal();imageActuelle(${i})" alt="Lilac breasted roller, closeup view ">`;
+            mediaLightBox +=       `<img src="assets/images/${medias[i].image}" alt="Lilac breasted roller">`;
           }
 
           mediaLightBox += `      <a class="suivant" onclick="plusImages(1)">&#10095;</a>`
