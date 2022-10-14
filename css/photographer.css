@@ -2,11 +2,41 @@
     display: none;
     position: fixed;
     z-index: 1;
-    /*left:50%;*/
-    top: 15%;
-    width: 80%;   
+    top: 5%;
+    width: 80%;
     margin-left: 10%;
-    margin-right: 10%; 
+    margin-right: 10%;
+    animation-name: modalopen;
+    animation-duration: 0.8s;
+}
+@keyframes modalopen {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+    }
+}
+/* Ajout des propriétés du message d'erreur du formulaire */
+#firstMessageErreur, #lastMessageErreur, #emailMessageErreur {
+    color: blue
+    ;
+    font-size: 15px;
+    margin: 0;
+}
+#first, #last, #email, #message {
+    font-size: 25px;
+    width: 100%;
+    border-radius: 5px;
+}
+#message {
+    height: 150px;
+}
+#contact_modal h2 {
+    font-size: 64px;
+    font-weight: 100;
+    margin: 0;
 }
 
 .photograph-header {
@@ -100,7 +130,7 @@ article div h3 {
     color: #525252;
 }
 
-.contact_button {
+.contact_button, #envoyer {
     font-size: 20px;
     font-weight: bold;
     color: white;
@@ -260,34 +290,32 @@ nav {
 display: inline-block;
 }*/
 .menu > ul {
-    line-height: 50px;
+    /*line-height: 50px;*/
     cursor: pointer;
     font-size: 20px;
     text-align: left;
-    margin-top: 0;
+    margin: 0;
 }
 .sous-menu {
-    transform: scale(0.2);
-    transform-origin: top left;
-    transition: all 300ms ease-in-out;
     padding-bottom: 5px;
     border-radius: 5px;
     background-color: #901C1C;
     width: 150px;
     padding-left: 10px;
     padding-right: 10px;
-}
 
+    position: absolute;
+    left: 84px;
+}
 .sous-menu li {
     font-size: 20px;
     color: white;
-    transform: scale(0);
-    transition: all 300ms ease-in-out;
     text-align: start;
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 0;
     margin-bottom: 0;
+    line-height: 50px;
 }
 .sous-menu li p {
     display: flex;
@@ -308,9 +336,53 @@ display: inline-block;
     background: #D3573C;
 }
 
-.sous-menu:hover,
+/*.sous-menu:hover,
 .sous-menu:focus {
     transform: scale(1);
+}*/
+
+/*.sous-menu {
+    visibility: collapse;
+}*/
+
+.valeur-sous-menu {
+    /*visibility: collapse;
+    width: 0;*/
+    /*display: flex;
+    align-items: center;
+    text-align: left;*/
+    /*margin-left: 10px;*/
+    padding-bottom: 5px;
+    border-radius: 5px;
+    background-color: #901C1C;
+    width: 150px;
+    /*padding-left: 10px;
+    padding-right: 10px;*/
+    padding-left: 20px;
+    padding-top: 5px;
+    margin-top: 0px;
+    color: white;
+    font-size: 20px;
+    height: 50px;
+    cursor: pointer;
+    /*justify-content: space-between;*/
+}
+
+/*.valeur-sous-menu li p {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}*/
+
+.valeur-sous-menu li p i {
+    padding-left: 20px;
+}
+
+
+.valeurTriSousMenu {
+    align-items: flex-start;
+    margin: 0px;
 }
 
 .menu {
@@ -325,10 +397,10 @@ display: inline-block;
     top: 400px;
 }
 
-.sous-menu:hover li,
+/*.sous-menu:hover li,
 .sous-menu:focus li {
     transform: scale(1);
-}
+}*/
 
 .menu label {
     margin-right: 10px;

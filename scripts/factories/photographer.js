@@ -60,23 +60,31 @@ export function photographerFactory(data) {
     htmlPhotographers +=`</header>`
     htmlPhotographers +=`<main id="main">`
     htmlPhotographers +=`  <div class="photograph-header">`
-    htmlPhotographers +=`    <article>`;
-    htmlPhotographers +=`      <div>`;
-    htmlPhotographers +=`        <header>`;
-    htmlPhotographers +=`          <h1>${name}</h1>`;
-    htmlPhotographers +=`        </header>`;
-    htmlPhotographers +=`        <h2>${city}, ${country}</h2>`;
-    htmlPhotographers +=`        <h3>${tagline}</h3>`;
-    htmlPhotographers +=`      </div>`;
-    htmlPhotographers +=`      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>`;
-    htmlPhotographers +=`      <img src="assets/photographers/${portrait}" alt="">`;
-    htmlPhotographers +=`    </article>`;
+    htmlPhotographers +=`    <article>`
+    htmlPhotographers +=`      <div>`
+    htmlPhotographers +=`        <header>`
+    htmlPhotographers +=`          <h1>${name}</h1>`
+    htmlPhotographers +=`        </header>`
+    htmlPhotographers +=`        <h2>${city}, ${country}</h2>`
+    htmlPhotographers +=`        <h3>${tagline}</h3>`
+    htmlPhotographers +=`      </div>`
+    htmlPhotographers +=`      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>`
+    htmlPhotographers +=`      <img src="assets/photographers/${portrait}" alt="">`
+    htmlPhotographers +=`    </article>`
     htmlPhotographers +=`  </div>`
     htmlPhotographers +=`</main>`
     htmlPhotographers +=`<nav>`
     htmlPhotographers +=`  <div class="menu">`
     htmlPhotographers +=`    <label for="sous-menu">Trier par</label>`
-    htmlPhotographers +=`    <ul class="sous-menu" tabindex="0">`
+    /*htmlPhotographers +=`    <ul class="valeur-sous-menu" style="display: block">`
+    htmlPhotographers +=`      <li tabindex="0" id="valeur-sousmenu"><p class="valeurTriSousMenu"> Popularité <i class="fa fa-angle-down"></i></p></li>`
+    htmlPhotographers +=`    </ul>`*/
+
+    htmlPhotographers +=`      <div id="selectionTri">`
+    htmlPhotographers +=`        <button tabindex="0" class="valeur-sous-menu"><p class="valeurTriSousMenu"> Popularité <i class="fa fa-angle-down"></i></p></button>`
+    htmlPhotographers +=`      </div>`
+
+    htmlPhotographers +=`    <ul class="sous-menu" tabindex="0" style="display: none">`
     htmlPhotographers +=`      <li tabindex="0" id="popularite"><p> Popularité <i class="fa fa-angle-up" aria-hidden="true"></i></p><li>`
     htmlPhotographers +=`      <div class="espace"></div>`
     htmlPhotographers +=`      <li tabindex="0" id="date">Date<li>`
@@ -90,7 +98,7 @@ export function photographerFactory(data) {
     htmlPhotographers +=`<div class="blocliketarif" style="display: block;">`
     htmlPhotographers +=`  <div class="liketarif">`
     htmlPhotographers +=`    <div class="likes">`
-    htmlPhotographers +=`      <h3 class="nombreLike"></h3>`
+    htmlPhotographers +=`      <h3 class="totalNombreLike"></h3>`
     htmlPhotographers +=`      <div class="coeur" aria-label="likes">`
     htmlPhotographers +=`        <i class="fa-solid fa-heart"></i>`
     htmlPhotographers +=`      </div>`
@@ -101,32 +109,36 @@ export function photographerFactory(data) {
     htmlPhotographers +=`  </div>`
     htmlPhotographers +=`</div>`
     htmlPhotographers +=`<div id="lightbox" class="modal-lightbox">`
-    htmlPhotographers +=` <div class="contenu-lightbox">`
-    htmlPhotographers +=` </div>`
+    htmlPhotographers +=`  <div class="contenu-lightbox">`
+    htmlPhotographers +=`  </div>`
     htmlPhotographers +=`</div>`
     htmlPhotographers +=`<div id="contact_modal">`
-		htmlPhotographers +=`	<div class="modal">`
-		htmlPhotographers +=`		<header>`
+		htmlPhotographers +=`	 <div class="modal">`
+		htmlPhotographers +=`	   <header>`
     htmlPhotographers +=`      <h2>Contactez-moi</h2>`
     htmlPhotographers +=`      <img src="assets/icons/close.svg" alt="Contact Me" onclick="closeModal()">`
     htmlPhotographers +=`    </header>`
-		htmlPhotographers +=`		<form>`
-		htmlPhotographers +=`			<div>`
-		htmlPhotographers +=`				<label for="prenom">Prénom</label>`
-    htmlPhotographers +=`       <input type="text" id="prenom" name="prenom" required minlength="2" maxlength="100">`
-    htmlPhotographers +=`				<label for="nom">Nom</label>`
-    htmlPhotographers +=`       <input type="text" id="nom" name="nom" required minlength="2" maxlength="100">`
+		htmlPhotographers +=`  <form>`
+		htmlPhotographers +=`	    <div>`
+    htmlPhotographers +=`       <h2>${name}</h2>`
+		htmlPhotographers +=`			  <label for="first">Prénom</label>`
+    htmlPhotographers +=`       <input type="text" id="first" name="prenom" required minlength="2" maxlength="100">`
+    htmlPhotographers +=`       <p id="firstMessageErreur"></p>`
+    htmlPhotographers +=`				<label for="last">Nom</label>`
+    htmlPhotographers +=`       <input type="text" id="last" name="nom" required minlength="2" maxlength="100">`
+    htmlPhotographers +=`       <p id="lastMessageErreur"></p>`
 		htmlPhotographers +=`				<label for="email">Email</label>`
     htmlPhotographers +=`       <input type="text" id="email" name="email" required minlength="2" maxlength="100">`
+    htmlPhotographers +=`       <p id="emailMessageErreur"></p>`
 		htmlPhotographers +=`				<label for="message">Votre message</label>`
-    htmlPhotographers +=`       <input type="text" id="message" name="message" required minlength="2" maxlength="100">`
+    htmlPhotographers +=`       <textarea rows="10" cols="20" aria-multiline="true" role="textbox" id="message" name="message" required minlength="2" maxlength="200"></textarea>`
 		htmlPhotographers +=`			</div>`
-    htmlPhotographers +=`      <button class="contact_button">Envoyer</button>`
-		htmlPhotographers +=`		</form>`
+    htmlPhotographers +=`     <button id="envoyer" onclick="envoyerFormulaire()">Envoyer</button>`
+		htmlPhotographers +=`   </form>`
 		htmlPhotographers +=`	</div>`
 		htmlPhotographers +=`</div>`
     htmlPhotographers +=`<script src="/scripts/pages/photographer.js" type="module"></script>`
-    htmlPhotographers +=`<script src="/scripts/utils/lightbox.js"></script>`
+    htmlPhotographers +=`<script src="/scripts/utils/lightbox.js" type="module"></script>`
     htmlPhotographers +=`<script src="/scripts/utils/contactForm.js"></script>`
 
     // Injection du code html dans le body

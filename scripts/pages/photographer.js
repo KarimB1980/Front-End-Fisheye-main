@@ -55,7 +55,6 @@ async function init() {
   const { photographe } = donneesPhotographe();
   console.log({ photographe });
   displayData(photographe);
-
 }
 
 init()

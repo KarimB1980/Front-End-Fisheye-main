@@ -6,16 +6,18 @@ export function fetchPhotographersMedia() {
     }
   })
   .then(function(datas) {
-    console.log(datas);
     // Récupération des données dans datas et injection dans le localstorage sous le nom de clef "photographersMedia"
     const photographersMedia = datas;
     localStorage.setItem("photographersMedia", JSON.stringify(photographersMedia));
     console.log(photographersMedia);
+    console.log(datas);
+
     return datas;
   })
 }
 
 export async function getPhotographers() {
+
   fetchPhotographersMedia();
   let donnees = JSON.parse(localStorage.getItem("photographersMedia"));
   //console.log(donnees.photographers);
