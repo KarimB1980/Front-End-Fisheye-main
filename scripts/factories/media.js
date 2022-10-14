@@ -106,7 +106,6 @@ export function mediaFactory() {
       //----------------------------------------------------------------------------------------------------------//
 
 
-      let valeurSousMenu = document.querySelector(".valeur-sous-menu");
       //valeurSousMenu.style.display = "block";
       //console.log(valeurSousMenu);
 
@@ -114,11 +113,12 @@ export function mediaFactory() {
       let SousMenuTitre = document.querySelector("#titre");
 
       function clicMenuDeroulant() {
+        let valeurSousMenu = document.querySelector(".valeur-sous-menu");
+
         valeurSousMenu.addEventListener("click", () =>
           {
             let sousMenu = '';
             sousMenu +=`  <button tabindex="0" class="valeur-sous-menu"><p class="valeurTriSousMenu"> Popularité <i class="fa fa-angle-down"></i></p></button>`
-
 
             // Injection du nouveau code html dans le DOM
             let menuDeroulant = document.querySelector('#selectionTri');
@@ -405,12 +405,12 @@ export function mediaFactory() {
       like();
 
       function totallikes() {
-        let coeur = document.querySelectorAll('.nombrelike');
+        let coeurs = document.querySelectorAll('.nombrelike');
         //console.log(coeur);
         let totalLikeCoe = [];
-        coeur.forEach((coeurs) => 
+        coeurs.forEach((coeur) => 
           {
-            totalLikeCoe.push(parseInt(coeurs.textContent));
+            totalLikeCoe.push(parseInt(coeur.textContent));
             //console.log(totalLikeCoe);
             const reducers = (accumulator, currentValue) => accumulator + currentValue;
             let totalLikeCoeurs = totalLikeCoe.reduce(reducers);
