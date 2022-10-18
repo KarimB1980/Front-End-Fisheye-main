@@ -20,8 +20,7 @@
 }
 /* Ajout des propriétés du message d'erreur du formulaire */
 #firstMessageErreur, #lastMessageErreur, #emailMessageErreur {
-    color: blue
-    ;
+    color: blue;
     font-size: 15px;
     margin: 0;
 }
@@ -130,17 +129,71 @@ article div h3 {
     color: #525252;
 }
 
-.contact_button, #envoyer {
+.contact_button, #envoyer, .valeur-sous-menu {
     font-size: 20px;
     font-weight: bold;
     color: white;
-    padding: 11px;
+    /*padding: 11px;*/
     width: 170px;
     height: 70px;
     border: none;
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.contact_button:hover, #envoyer:hover, .valeur-sous-menu:hover, .contact_button:focus, #envoyer:focus, .valeur-sous-menu:focus {
+    background: #D3573C;
+    color: black;
+    border: 0px;
+}
+
+#boutonPopularite {
+    width: 160px;
+    height: 70px;
+    background-color: #901C1C;
+    border-radius: 5px 5px 0 0;
+    border: 0 solid #901C1C;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#boutonDate {
+    width: 160px;
+    height: 70px;
+    background-color: #901C1C;
+    border-radius: 0;
+    border: 0 solid #901C1C;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#boutonTitre {
+    width: 160px;
+    height: 70px;
+    background-color: #901C1C;
+    border-radius: 0 0 5px 5px;
+    border: 0 solid #901C1C;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#boutonPopularite, #boutonDate, #boutonTitre {
+    cursor: pointer;
+}
+
+hr {
+    width: 140px;
+    /*height: 3px;*/
+    margin: 0px;
+    color: white;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.like button, article button {
+    border: 0px;
+    background-color: white;
 }
 
 .modal {
@@ -297,25 +350,30 @@ display: inline-block;
     margin: 0;
 }
 .sous-menu {
-    padding-bottom: 5px;
+    /*padding-bottom: 5px;*/
     border-radius: 5px;
     background-color: #901C1C;
-    width: 150px;
-    padding-left: 10px;
-    padding-right: 10px;
+    width: 170px;
+    /*padding-left: 10px;
+    padding-right: 10px;*/
+    padding-left: 0px;
+    padding-right: 0px;
 
     position: absolute;
     left: 84px;
+    bottom: -174px;
 }
 .sous-menu li {
     font-size: 20px;
     color: white;
     text-align: start;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 6px;
+    margin-right: 6px;
     margin-top: 0;
     margin-bottom: 0;
-    line-height: 50px;
+    font: 20px arial;
+    font-weight: bold;
+    /*line-height: 70px;*/
 }
 .sous-menu li p {
     display: flex;
@@ -323,7 +381,11 @@ display: inline-block;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0;
-    margin-top: 5px;
+    margin-top: 0px;
+    /*font-weight: bold;*/
+    font: 20px arial;
+    font-weight: bold;
+    /*line-height: 70px;*/
 }
 .espace {
     height: 2px;
@@ -331,41 +393,31 @@ display: inline-block;
     margin-left: -10px;
     margin-right: -10px;
 }
-.sous-menu li:hover,
-.sous-menu li:focus {
+
+#boutonPopularite:hover,
+#boutonPopularite:focus,
+#boutonDate:hover,
+#boutonDate:focus,
+#boutonTitre:hover,
+#boutonTitre:focus {
     background: #D3573C;
+    color: black;
 }
 
-/*.sous-menu:hover,
-.sous-menu:focus {
-    transform: scale(1);
-}*/
-
-/*.sous-menu {
-    visibility: collapse;
-}*/
-
 .valeur-sous-menu {
-    /*visibility: collapse;
-    width: 0;*/
-    /*display: flex;
-    align-items: center;
-    text-align: left;*/
-    /*margin-left: 10px;*/
-    padding-bottom: 5px;
-    border-radius: 5px;
-    background-color: #901C1C;
-    width: 150px;
-    /*padding-left: 10px;
-    padding-right: 10px;*/
-    padding-left: 20px;
-    padding-top: 5px;
-    margin-top: 0px;
-    color: white;
     font-size: 20px;
-    height: 50px;
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    /*width: 171px;*/
+    height: 70px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
     cursor: pointer;
-    /*justify-content: space-between;*/
+    position: absolute;
+    left: 84px;
+    bottom: -30px;
 }
 
 /*.valeur-sous-menu li p {
@@ -375,10 +427,9 @@ display: inline-block;
     align-items: center;
 }*/
 
-.valeur-sous-menu li p i {
-    padding-left: 20px;
+.valeur-sous-menu p i {
+    padding-left: 15px;
 }
-
 
 .valeurTriSousMenu {
     align-items: flex-start;
@@ -422,7 +473,7 @@ display: inline-block;
     height: 100%;
     padding: 0;
 }
-    
+
 /* Contenu de la lightbox */
 .contenu-lightbox {
     background-color: white;

@@ -76,20 +76,17 @@ export function photographerFactory(data) {
     htmlPhotographers +=`<nav>`
     htmlPhotographers +=`  <div class="menu">`
     htmlPhotographers +=`    <label for="sous-menu">Trier par</label>`
-    /*htmlPhotographers +=`    <ul class="valeur-sous-menu" style="display: block">`
-    htmlPhotographers +=`      <li tabindex="0" id="valeur-sousmenu"><p class="valeurTriSousMenu"> Popularité <i class="fa fa-angle-down"></i></p></li>`
-    htmlPhotographers +=`    </ul>`*/
-
     htmlPhotographers +=`      <div id="selectionTri">`
     htmlPhotographers +=`        <button tabindex="0" class="valeur-sous-menu"><p class="valeurTriSousMenu"> Popularité <i class="fa fa-angle-down"></i></p></button>`
     htmlPhotographers +=`      </div>`
-
-    htmlPhotographers +=`    <ul class="sous-menu" tabindex="0" style="display: none">`
-    htmlPhotographers +=`      <li tabindex="0" id="popularite"><p> Popularité <i class="fa fa-angle-up" aria-hidden="true"></i></p><li>`
-    htmlPhotographers +=`      <div class="espace"></div>`
-    htmlPhotographers +=`      <li tabindex="0" id="date">Date<li>`
-    htmlPhotographers +=`      <div class="espace"></div>`
-    htmlPhotographers +=`      <li tabindex="0" id="titre">Titre<li>`
+    htmlPhotographers +=`    <ul class="sous-menu" style="display: none">`
+    htmlPhotographers +=`      <button id="boutonPopularite" tabindex="0"><li id="popularite"><p> Popularité <i class="fa fa-angle-up" aria-hidden="true"></i></p><li></button>`
+    //htmlPhotographers +=`      <div class="espace"></div>`
+    htmlPhotographers +=`      <hr>`
+    htmlPhotographers +=`      <button id="boutonDate" tabindex="0"><li id="date">Date<li></button>`
+    //htmlPhotographers +=`      <div class="espace"></div>`
+    htmlPhotographers +=`      <hr>`
+    htmlPhotographers +=`      <button id="boutonTitre" tabindex="0"><li id="titre">Titre<li></button>`
     htmlPhotographers +=`    </ul>`
     htmlPhotographers +=`  </div>`
     htmlPhotographers +=`</nav>`
@@ -132,6 +129,7 @@ export function photographerFactory(data) {
     htmlPhotographers +=`       <p id="emailMessageErreur"></p>`
 		htmlPhotographers +=`				<label for="message">Votre message</label>`
     htmlPhotographers +=`       <textarea rows="10" cols="20" aria-multiline="true" role="textbox" id="message" name="message" required minlength="2" maxlength="200"></textarea>`
+    htmlPhotographers +=`       <p id="messageMessageErreur"></p>`
 		htmlPhotographers +=`			</div>`
     htmlPhotographers +=`     <button id="envoyer" onclick="envoyerFormulaire()">Envoyer</button>`
 		htmlPhotographers +=`   </form>`

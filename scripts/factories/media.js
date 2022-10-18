@@ -57,25 +57,27 @@ export function mediaFactory() {
 
       for (let i = 0; i < mediaPhotographer.length; i++) {
         // Affichage des réalisations du photographe
-        listeMediaPopularite +=   '<article>';
+        listeMediaPopularite +=   '<article>'
 
         if (mediaPhotographer[i].video) {
-          listeMediaPopularite +=       `<video onclick="ouvrirModal();imageActuelle(${1+i})"><source src="assets/images/${mediaPhotographer[i].video}" type="video/mp4" ></video>`;
+          listeMediaPopularite +=       `<button onclick="ouvrirModal();imageActuelle(${1+i})"><video><source src="assets/images/${mediaPhotographer[i].video}" type="video/mp4" ></video></button>`
         }
         if (mediaPhotographer[i].image) {
-          listeMediaPopularite +=       `<img src="assets/images/${mediaPhotographer[i].image}" onclick="ouvrirModal();imageActuelle(${1+i})" alt="Lilac breasted roller, closeup view">`;
+          //listeMediaPopularite +=       `<img src="assets/images/${mediaPhotographer[i].image}" onclick="ouvrirModal();imageActuelle(${1+i})" role="button" aria-pressed="true" alt="Lilac breasted roller, closeup view">`;
+          listeMediaPopularite +=       `<button onclick="ouvrirModal();imageActuelle(${1+i})" role="button" aria-pressed="true"><img src="assets/images/${mediaPhotographer[i].image}" alt="Lilac breasted roller, closeup view"></button>`
         }
-        listeMediaPopularite +=       `<div class="titrecoeur">`;
-        listeMediaPopularite +=         `<h3 class="productName">${mediaPhotographer[i].title}</h3>`;
-        listeMediaPopularite +=         `<div class="like">`;
-        listeMediaPopularite +=           `<h3 class="nombrelike">${mediaPhotographer[i].likes}</h3>`;
-        listeMediaPopularite +=           `<div class="coeur" aria-label="likes">`;
-        listeMediaPopularite +=             `<i class="fa-solid fa-heart"></i>`;
-        listeMediaPopularite +=           `</div>`;
-        listeMediaPopularite +=         `</div>`
-        listeMediaPopularite +=       `</div>`;
-        listeMediaPopularite +=   `</article>`;
-
+        listeMediaPopularite +=       `<div class="titrecoeur">`
+        listeMediaPopularite +=         `<h3 class="productName">${mediaPhotographer[i].title}</h3>`
+        listeMediaPopularite +=           `<div class="like">`
+        listeMediaPopularite +=             `<h3 class="nombrelike">${mediaPhotographer[i].likes}</h3>`
+        listeMediaPopularite +=             `<button>`
+        listeMediaPopularite +=               `<div class="coeur" aria-label="likes">`
+        listeMediaPopularite +=                 `<i class="fa-solid fa-heart"></i>`
+        listeMediaPopularite +=               `</div>`
+        listeMediaPopularite +=             `</button>`
+        listeMediaPopularite +=           `</div>`
+        listeMediaPopularite +=       `</div>`
+        listeMediaPopularite +=   `</article>`
 
         mediaLightBoxPopularite += `<div class="image-lightbox">`
         mediaLightBoxPopularite += `  <span class="fermer" onclick="fermerModal()">&times;</span>`
@@ -84,10 +86,10 @@ export function mediaFactory() {
         mediaLightBoxPopularite += `      <a class="precedant" onclick="plusImages(-1)">&#10094;</a>`
 
         if (mediaPhotographer[i].video) {
-          mediaLightBoxPopularite +=       `<video controls><source src="assets/images/${mediaPhotographer[i].video}" type="video/mp4"></video>`;
+          mediaLightBoxPopularite +=       `<video controls><source src="assets/images/${mediaPhotographer[i].video}" type="video/mp4"></video>`
         }
         if (mediaPhotographer[i].image) {
-          mediaLightBoxPopularite +=       `<img src="assets/images/${mediaPhotographer[i].image}" alt="Lilac breasted roller">`;
+          mediaLightBoxPopularite +=       `<img src="assets/images/${mediaPhotographer[i].image}" alt="Lilac breasted roller">`
         }
 
         mediaLightBoxPopularite += `      <a class="suivant" onclick="plusImages(1)">&#10095;</a>`
@@ -105,12 +107,11 @@ export function mediaFactory() {
 
       //----------------------------------------------------------------------------------------------------------//
 
-
       //valeurSousMenu.style.display = "block";
       //console.log(valeurSousMenu);
 
-      let SousMenuDate = document.querySelector("#date");
-      let SousMenuTitre = document.querySelector("#titre");
+      //let SousMenuDate = document.querySelector("#date");
+      //let SousMenuTitre = document.querySelector("#titre");
 
       function clicMenuDeroulant() {
         let valeurSousMenu = document.querySelector(".valeur-sous-menu");
@@ -137,9 +138,23 @@ export function mediaFactory() {
       clicMenuDeroulant();
 
 
-
       function triPopularite() {
-        let popularite = document.querySelector("#popularite");
+
+
+
+        /*var elementPopularite = document.querySelector("#boutonPopularite");
+        console.log(elementPopularite);
+        elementPopularite.addEventListener("keypress", function(event) {
+          //if (event.key === "Enter") {
+          if (event.keycode === 13 || event.which === 13) {  
+            //alert(event.key  + " " + event.which);
+            //event.preventDefault();
+            console.log("entrée ça marche");
+          }
+        });*/
+
+        //let popularite = document.querySelector("#popularite");
+        let popularite = document.querySelector("#boutonPopularite");
         popularite.addEventListener("click", () =>
           {
             mediaPhotographer.sort((a, b) => (a.likes > b.likes ? -1 : 1));
@@ -217,7 +232,8 @@ export function mediaFactory() {
 
       function triTitre() {
 
-        let titre = document.querySelector("#titre");
+        //let titre = document.querySelector("#titre");
+        let titre = document.querySelector("#boutonTitre");
         titre.addEventListener("click", () =>
           {
             mediaPhotographer.sort((a, b) => (a.title > b.title ? 1 : -1));
@@ -245,7 +261,6 @@ export function mediaFactory() {
               listeMediaTitre +=         `</div>`
               listeMediaTitre +=       `</div>`;
               listeMediaTitre +=   `</article>`;
-
 
               mediaLightBoxTitre += `<div class="image-lightbox">`
               mediaLightBoxTitre += `  <span class="fermer" onclick="fermerModal()">&times;</span>`
@@ -299,7 +314,8 @@ export function mediaFactory() {
       triTitre();
 
       function triDate() {
-        let date = document.querySelector("#date");
+        //let date = document.querySelector("#date");
+        let date = document.querySelector("#boutonDate");
         date.addEventListener("click", () =>
           {
             mediaPhotographer.sort((a, b) => (a.date > b.date ? 1 : -1));
