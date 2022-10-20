@@ -19,7 +19,7 @@
     }
 }
 /* Ajout des propriétés du message d'erreur du formulaire */
-#firstMessageErreur, #lastMessageErreur, #emailMessageErreur {
+#firstMessageErreur, #lastMessageErreur, #emailMessageErreur, #messageMessageErreur {
     color: blue;
     font-size: 15px;
     margin: 0;
@@ -510,6 +510,12 @@ display: inline-block;
     display: flex;
     text-align: center;
     justify-content: center;
+}
+
+.imagetitre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .imagetitre img, .imagetitre video {

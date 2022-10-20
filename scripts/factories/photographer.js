@@ -106,7 +106,7 @@ export function photographerFactory(data) {
     htmlPhotographers +=`  </div>`
     htmlPhotographers +=`</div>`
     htmlPhotographers +=`<div id="lightbox" class="modal-lightbox">`
-    htmlPhotographers +=`  <div class="contenu-lightbox">`
+    htmlPhotographers +=`  <div class="contenu-lightbox" style="display: none">`
     htmlPhotographers +=`  </div>`
     htmlPhotographers +=`</div>`
     htmlPhotographers +=`<div id="contact_modal">`
@@ -131,7 +131,9 @@ export function photographerFactory(data) {
     htmlPhotographers +=`        <textarea rows="10" cols="20" aria-multiline="true" role="textbox" id="message" name="message" required minlength="2" maxlength="200"></textarea>`
     htmlPhotographers +=`        <p id="messageMessageErreur"></p>`
 		htmlPhotographers +=`		   </div>`
-    htmlPhotographers +=`      <button id="envoyer" onclick="envoyerFormulaire()">Envoyer</button>`
+    //htmlPhotographers +=`      <button id="envoyer" onclick="envoyerFormulaire()">Envoyer</button>`
+    htmlPhotographers +=`      <button id="envoyer">Envoyer</button>`
+
 		htmlPhotographers +=`    </form>`
 		htmlPhotographers +=`	 </div>`
 		htmlPhotographers +=`</div>`

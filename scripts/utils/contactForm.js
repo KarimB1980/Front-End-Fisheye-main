@@ -41,6 +41,7 @@ function closeModal() {
 }
 
 function controleFormulaire() {
+
   // Contrôle du champ "Prénom" en vérifiant qu'il ne comporte que des minuscules, majuscules, tirets, espaces et 2 à 100 caractères
   document.getElementById('first').onchange = function prenom() {
     const firstName = document.getElementById('first').value;
@@ -89,26 +90,63 @@ function controleFormulaire() {
     }
   }
 
-    // Contrôle du champ E-mail
-    document.getElementById('message').onchange = function message() {
-      if (document.getElementById('message').value == "") {
-        // Contour de couleur rouge du champ "E-mail"
-        document.getElementById('message').style.border="2px solid blue";
-      // Affichage du message d'erreur sous le champ "Message"
-        document.querySelector("#messageMessageErreur").innerHTML = "Veuillez renseigner un message.).";
-      }
+  // Contrôle du champ Message
+  document.getElementById('message').onchange = function message() {
+    if (document.getElementById('message').value == "") {
+      // Contour de couleur rouge du champ "Message"
+      document.getElementById('message').style.border="2px solid blue";
+    // Affichage du message d'erreur sous le champ "Message"
+      document.querySelector("#messageMessageErreur").innerHTML = "Veuillez renseigner un message.";
     }
-
+  }
 }
-//controleFormulaire();
 
-function envoyerFormulaire() {
-//document.getElementById('envoyer').onclick = function (envoyer) {
-  //envoyer.preventDefault();
-  console.log("ça marche");
-  //window.location = `${window.location.origin}/front/html/confirmation.html?orderId=${orderIdCommande}`
-  
-  controleFormulaire();
+document.getElementById('envoyer').onclick = function (envoyer) {
+  envoyer.preventDefault();
+  console.log("envoyer ça marche");
+
+  if (document.getElementById('first').value == "") {
+    // Contour de couleur rouge du champ "Prénom"
+    document.getElementById('first').style.border="2px solid blue";
+    // Affichage du message d'erreur sous le champ "Prénom"
+    document.querySelector("#firstMessageErreur").innerHTML = "Veuillez renseigner un prénom valide (ne comportant que des minuscules, majuscules, tirets, espaces et 2 à 100 caractères maximum).";
+  } else {
+    document.getElementById('first').style.border="0px solid blue";
+    // Effacement du message d'erreur
+    document.querySelector("#firstMessageErreur").innerHTML = "";
+  }    
+
+  if (document.getElementById('last').value == "") {
+    // Contour de couleur rouge du champ "nom"
+    document.getElementById('last').style.border="2px solid blue";
+    // Affichage du message d'erreur sous le champ "nom"
+    document.querySelector("#lastMessageErreur").innerHTML = "Veuillez renseigner un nom valide (ne comportant que des minuscules, majuscules, tirets, espaces et 2 à 100 caractères maximum).";
+  } else {
+    document.getElementById('last').style.border="0px solid blue";
+    // Effacement du message d'erreur
+    document.querySelector("#lastMessageErreur").innerHTML = "";
+  }    
+
+  // Contrôle du champ E-mail
+  if (document.getElementById('email').value == "") {
+    // Contour de couleur rouge du champ "E-mail"
+    document.getElementById('email').style.border="2px solid blue";
+    // Affichage du message d'erreur sous le champ "E-mail"
+    document.querySelector("#emailMessageErreur").innerHTML = "Veuillez renseigner un email valide (respectant le format xxxx@xxx.xxx avec une terminaison de 2 à 4 caractères).";
+  } else {
+    // Masquage du coutour de couleur rouge du champ "E-mail"
+    document.getElementById('email').style.border="0px solid blue";
+    // Effacement du message d'erreur
+    document.querySelector("#emailMessageErreur").innerHTML = "";
+  }
+
+  // Contrôle du champ Message
+  if (document.getElementById('message').value == "") {
+    // Contour de couleur rouge du champ "Message"
+    document.getElementById('message').style.border="2px solid blue";
+  // Affichage du message d'erreur sous le champ "Message"
+    document.querySelector("#messageMessageErreur").innerHTML = "Veuillez renseigner un message.";
+  }
 
   let formulaire = [];
   let donneesformulaire = {
@@ -117,21 +155,7 @@ function envoyerFormulaire() {
     email: document.querySelector("#email").value,
     message: document.querySelector("#message").value
   }
-  console.log(donneesformulaire);
   formulaire.push(donneesformulaire);
   console.log(formulaire);
-  let donneesDuFormulaire = localStorage.setItem("localStoragedonneesFormulaire", JSON.stringify(donneesformulaire));
-  //let donneesDuFormulaire1 = localStorage.setItem("localStoragedonneesFormulaire", JSON.parse(donneesformulaire));
-  console.log(donneesDuFormulaire);
-  return false;
-
-  /*if (document.querySelector("#first").value && document.querySelector("#last").value && document.querySelector("#email").value && document.querySelector("#message").value && document.querySelector("#firstMessageErreur") == "" && document.querySelector("#lastMessageErreur") == "" &&  document.querySelector("#emailMessageErreur") == "") { 
-    closeModal();
-    init();
-    donneesPhotographe(); 
-    photographerFactory();
-    displayData();
-    mediaFactory();
-  }*/
-//}
 }
+//)
