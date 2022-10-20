@@ -68,7 +68,7 @@ export function photographerFactory(data) {
     htmlPhotographers +=`        <h2>${city}, ${country}</h2>`
     htmlPhotographers +=`        <h3>${tagline}</h3>`
     htmlPhotographers +=`      </div>`
-    htmlPhotographers +=`      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>`
+    htmlPhotographers +=`      <button class="contact_button" name="Contact me" onclick="displayModal()">Contactez-moi</button>`
     htmlPhotographers +=`      <img src="assets/photographers/${portrait}" alt="">`
     htmlPhotographers +=`    </article>`
     htmlPhotographers +=`  </div>`
@@ -110,34 +110,34 @@ export function photographerFactory(data) {
     htmlPhotographers +=`  </div>`
     htmlPhotographers +=`</div>`
     htmlPhotographers +=`<div id="contact_modal">`
-		htmlPhotographers +=`	 <div class="modal">`
+		htmlPhotographers +=`	 <div class="modal" aria-labelledby="Contact me ${name}">`
 		htmlPhotographers +=`	   <header>`
     htmlPhotographers +=`      <h2>Contactez-moi</h2>`
     htmlPhotographers +=`      <img src="assets/icons/close.svg" alt="Contact Me" onclick="closeModal()">`
     htmlPhotographers +=`    </header>`
-		htmlPhotographers +=`  <form>`
-		htmlPhotographers +=`	    <div>`
-    htmlPhotographers +=`       <h2>${name}</h2>`
-		htmlPhotographers +=`			  <label for="first">Prénom</label>`
-    htmlPhotographers +=`       <input type="text" id="first" name="prenom" required minlength="2" maxlength="100">`
-    htmlPhotographers +=`       <p id="firstMessageErreur"></p>`
-    htmlPhotographers +=`				<label for="last">Nom</label>`
-    htmlPhotographers +=`       <input type="text" id="last" name="nom" required minlength="2" maxlength="100">`
-    htmlPhotographers +=`       <p id="lastMessageErreur"></p>`
-		htmlPhotographers +=`				<label for="email">Email</label>`
-    htmlPhotographers +=`       <input type="text" id="email" name="email" required minlength="2" maxlength="100">`
-    htmlPhotographers +=`       <p id="emailMessageErreur"></p>`
-		htmlPhotographers +=`				<label for="message">Votre message</label>`
-    htmlPhotographers +=`       <textarea rows="10" cols="20" aria-multiline="true" role="textbox" id="message" name="message" required minlength="2" maxlength="200"></textarea>`
-    htmlPhotographers +=`       <p id="messageMessageErreur"></p>`
-		htmlPhotographers +=`			</div>`
-    htmlPhotographers +=`     <button id="envoyer" onclick="envoyerFormulaire()">Envoyer</button>`
-		htmlPhotographers +=`   </form>`
-		htmlPhotographers +=`	</div>`
+		htmlPhotographers +=`    <form id="formulaire" role=”dialog”>`
+		htmlPhotographers +=`	     <div>`
+    htmlPhotographers +=`        <h2>${name}</h2>`
+		htmlPhotographers +=`	 	     <label for="first">Prénom</label>`
+    htmlPhotographers +=`        <input type="text" id="first" name="prenom" required minlength="2" maxlength="100">`
+    htmlPhotographers +=`        <p id="firstMessageErreur"></p>`
+    htmlPhotographers +=`			   <label for="last">Nom</label>`
+    htmlPhotographers +=`        <input type="text" id="last" name="nom" required minlength="2" maxlength="100">`
+    htmlPhotographers +=`        <p id="lastMessageErreur"></p>`
+		htmlPhotographers +=`			   <label for="email">Email</label>`
+    htmlPhotographers +=`        <input type="text" id="email" name="email" required minlength="2" maxlength="100">`
+    htmlPhotographers +=`        <p id="emailMessageErreur"></p>`
+		htmlPhotographers +=`			   <label for="message">Votre message</label>`
+    htmlPhotographers +=`        <textarea rows="10" cols="20" aria-multiline="true" role="textbox" id="message" name="message" required minlength="2" maxlength="200"></textarea>`
+    htmlPhotographers +=`        <p id="messageMessageErreur"></p>`
+		htmlPhotographers +=`		   </div>`
+    htmlPhotographers +=`      <button id="envoyer" onclick="envoyerFormulaire()">Envoyer</button>`
+		htmlPhotographers +=`    </form>`
+		htmlPhotographers +=`	 </div>`
 		htmlPhotographers +=`</div>`
-    htmlPhotographers +=`<script src="/scripts/pages/photographer.js" type="module"></script>`
-    htmlPhotographers +=`<script src="/scripts/utils/lightbox.js" type="module"></script>`
-    htmlPhotographers +=`<script src="/scripts/utils/contactForm.js"></script>`
+    /*htmlPhotographers +=`<script src="/scripts/pages/photographer.js" type="module"></script>`
+    htmlPhotographers +=`<script defer src="/scripts/utils/lightbox.js"></script>`
+    htmlPhotographers +=`<script defer src="/scripts/utils/contactForm.js"></script>`*/
 
     // Injection du code html dans le body
     document.querySelector("#body").innerHTML = htmlPhotographers;

@@ -30,5 +30,9 @@ function visualiserImage(n) {
   for (i = 0; i < images.length; i++) {
     images[i].style.display = "none";
   }
-  images[imageIndex-1].style.display = "block";
+
+  console.log(document.querySelector("#lightbox"));
+  if (document.querySelector("#lightbox").style.display = "block") {
+    images[imageIndex-1].style.display = "block";
+  }
 }

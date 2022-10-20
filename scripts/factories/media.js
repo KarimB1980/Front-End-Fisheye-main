@@ -30,7 +30,7 @@ export function mediaFactory() {
           totalLikePhotos.push(medias[i].likes);
           const reducers = (accumulator, currentValue) => accumulator + currentValue;
           let totalLike = totalLikePhotos.reduce(reducers);
-          console.log(totalLike);
+          //console.log(totalLike);
 
           document.querySelector('.totalNombreLike').innerHTML = totalLike;
         //}
@@ -80,10 +80,13 @@ export function mediaFactory() {
         listeMediaPopularite +=   `</article>`
 
         mediaLightBoxPopularite += `<div class="image-lightbox">`
-        mediaLightBoxPopularite += `  <span class="fermer" onclick="fermerModal()">&times;</span>`
+        //mediaLightBoxPopularite += `  <span class="fermer" onclick="fermerModal()">&times;</span>`
+        mediaLightBoxPopularite += `  <button class="fermer" aria-label="close dialog" onclick="fermerModal()">&times;</button>`
         mediaLightBoxPopularite += `  <div class="imagetitre">`
         mediaLightBoxPopularite += `    <div class="imagePrecSuiv">`
-        mediaLightBoxPopularite += `      <a class="precedant" onclick="plusImages(-1)">&#10094;</a>`
+        //mediaLightBoxPopularite += `      <a class="precedant" onclick="plusImages(-1)">&#10094;</a>`
+        mediaLightBoxPopularite += `      <button class="precedant" aria-label="Previous image" onclick="plusImages(-1)">&#10094;</button>`
+
 
         if (mediaPhotographer[i].video) {
           mediaLightBoxPopularite +=       `<video controls><source src="assets/images/${mediaPhotographer[i].video}" type="video/mp4"></video>`
@@ -92,7 +95,8 @@ export function mediaFactory() {
           mediaLightBoxPopularite +=       `<img src="assets/images/${mediaPhotographer[i].image}" alt="Lilac breasted roller">`
         }
 
-        mediaLightBoxPopularite += `      <a class="suivant" onclick="plusImages(1)">&#10095;</a>`
+        //mediaLightBoxPopularite += `      <a class="suivant" onclick="plusImages(1)">&#10095;</a>`
+        mediaLightBoxPopularite += `      <button class="suivant" aria-label="Next image" onclick="plusImages(1)">&#10095;</button>`
         mediaLightBoxPopularite += `    </div>`
         mediaLightBoxPopularite += `    <div class="titre-lightbox">${mediaPhotographer[i].title}</div>`
         mediaLightBoxPopularite += `  </div>`
@@ -138,20 +142,25 @@ export function mediaFactory() {
       clicMenuDeroulant();
 
 
+
+      /*var elementPopularite = document.querySelector("#boutonPopularite");
+      console.log(elementPopularite);
+      elementPopularite.addEventListener("keypress", function(event) {
+        //if (event.key === "Enter") {
+        if (event.keycode === 13 || event.which === 13) {  
+          //alert(event.key  + " " + event.which);
+          //event.preventDefault();
+          console.log("entrée ça marche");
+        }
+        if (event.keycode === 37 || event.which === 37) {  
+          console.log("gauche ça marche");
+        }
+        if (event.keycode === 39 || event.which === 39) {  
+          console.log("droite ça marche");
+        }
+      });*/
+
       function triPopularite() {
-
-
-
-        /*var elementPopularite = document.querySelector("#boutonPopularite");
-        console.log(elementPopularite);
-        elementPopularite.addEventListener("keypress", function(event) {
-          //if (event.key === "Enter") {
-          if (event.keycode === 13 || event.which === 13) {  
-            //alert(event.key  + " " + event.which);
-            //event.preventDefault();
-            console.log("entrée ça marche");
-          }
-        });*/
 
         //let popularite = document.querySelector("#popularite");
         let popularite = document.querySelector("#boutonPopularite");
@@ -167,27 +176,30 @@ export function mediaFactory() {
               listeMediaPopularite +=   '<article>';
 
               if (mediaPhotographer[i].video != undefined) {
-                listeMediaPopularite +=       `<video onclick="ouvrirModal();imageActuelle(${1+i})"><source src="assets/images/${mediaPhotographer[i].video}" type="video/mp4" ></video>`;
+                listeMediaPopularite +=       `<button onclick="ouvrirModal();imageActuelle(${1+i})"><video><source src="assets/images/${mediaPhotographer[i].video}" type="video/mp4" ></video></button>`;
               }
               if (mediaPhotographer[i].image != undefined) {
-                listeMediaPopularite +=       `<img src="assets/images/${mediaPhotographer[i].image}" onclick="ouvrirModal();imageActuelle(${1+i})" alt="Lilac breasted roller, closeup view">`;
+                listeMediaPopularite +=       `<button onclick="ouvrirModal();imageActuelle(${1+i})" role="button" aria-pressed="true"><img src="assets/images/${mediaPhotographer[i].image}" alt="Lilac breasted roller, closeup view"></button>`;
               }
               listeMediaPopularite +=       `<div class="titrecoeur">`;
               listeMediaPopularite +=         `<h3 class="productName">${mediaPhotographer[i].title}</h3>`;
               listeMediaPopularite +=         `<div class="like">`;
               listeMediaPopularite +=           `<h3 class="nombrelike">${mediaPhotographer[i].likes}</h3>`;
-              listeMediaPopularite +=           `<div class="coeur" aria-label="likes">`;
-              listeMediaPopularite +=             `<i class="fa-solid fa-heart"></i>`;
-              listeMediaPopularite +=           `</div>`;
+              listeMediaPopularite +=             `<button>`
+              listeMediaPopularite +=               `<div class="coeur" aria-label="likes">`;
+              listeMediaPopularite +=                 `<i class="fa-solid fa-heart"></i>`;
+              listeMediaPopularite +=               `</div>`;
+              listeMediaPopularite +=             `</button>`
               listeMediaPopularite +=         `</div>`
               listeMediaPopularite +=       `</div>`;
               listeMediaPopularite +=   `</article>`;
 
               mediaLightBoxPopularite += `<div class="image-lightbox">`
-              mediaLightBoxPopularite += `  <span class="fermer" onclick="fermerModal()">&times;</span>`
+              //mediaLightBoxPopularite += `  <span class="fermer" onclick="fermerModal()">&times;</span>`
+              mediaLightBoxPopularite += `  <button class="fermer" aria-label="close dialog" onclick="fermerModal()">&times;</button>`
               mediaLightBoxPopularite += `  <div class="imagetitre">`
               mediaLightBoxPopularite += `    <div class="imagePrecSuiv">`
-              mediaLightBoxPopularite += `      <a class="precedant" onclick="plusImages(-1)">&#10094;</a>`
+              mediaLightBoxPopularite += `      <button class="precedant" aria-label="Previous image" onclick="plusImages(-1)">&#10094;</button>`
 
               if (mediaPhotographer[i].video) {
                 mediaLightBoxPopularite +=       `<video controls><source src="assets/images/${mediaPhotographer[i].video}" type="video/mp4"></video>`;
@@ -196,7 +208,7 @@ export function mediaFactory() {
                 mediaLightBoxPopularite +=       `<img src="assets/images/${mediaPhotographer[i].image}" alt="Lilac breasted roller">`;
               }
 
-              mediaLightBoxPopularite += `      <a class="suivant" onclick="plusImages(1)">&#10095;</a>`
+              mediaLightBoxPopularite += `      <button class="suivant" aria-label="Next image" onclick="plusImages(1)">&#10095;</button>`
               mediaLightBoxPopularite += `    </div>`
               mediaLightBoxPopularite += `    <div class="titre-lightbox">${mediaPhotographer[i].title}</div>`
               mediaLightBoxPopularite += `  </div>`
@@ -246,27 +258,30 @@ export function mediaFactory() {
               listeMediaTitre +=   '<article>';
 
               if (mediaPhotographer[i].video != undefined) {
-                listeMediaTitre +=       `<video onclick="ouvrirModal();imageActuelle(${1+i})"><source src="assets/images/${mediaPhotographer[i].video}" type="video/mp4" ></video>`;
+                listeMediaTitre +=       `<button onclick="ouvrirModal();imageActuelle(${1+i})"><video><source src="assets/images/${mediaPhotographer[i].video}" type="video/mp4" ></video></button>`;
               }
               if (mediaPhotographer[i].image != undefined) {
-                listeMediaTitre +=       `<img src="assets/images/${mediaPhotographer[i].image}" onclick="ouvrirModal();imageActuelle(${1+i})" alt="Lilac breasted roller, closeup view">`;
+                listeMediaTitre +=       `<button onclick="ouvrirModal();imageActuelle(${1+i})" role="button" aria-pressed="true"><img src="assets/images/${mediaPhotographer[i].image}" alt="Lilac breasted roller, closeup view"></button>`;
               }
               listeMediaTitre +=       `<div class="titrecoeur">`;
               listeMediaTitre +=         `<h3 class="productName">${mediaPhotographer[i].title}</h3>`;
               listeMediaTitre +=         `<div class="like">`;
               listeMediaTitre +=           `<h3 class="nombrelike">${mediaPhotographer[i].likes}</h3>`;
-              listeMediaTitre +=           `<div class="coeur" aria-label="likes">`;
-              listeMediaTitre +=             `<i class="fa-solid fa-heart"></i>`;
-              listeMediaTitre +=           `</div>`;
+              listeMediaTitre +=             `<button>`
+              listeMediaTitre +=               `<div class="coeur" aria-label="likes">`;
+              listeMediaTitre +=                 `<i class="fa-solid fa-heart"></i>`;
+              listeMediaTitre +=               `</div>`;
+              listeMediaTitre +=             `</button>`
               listeMediaTitre +=         `</div>`
               listeMediaTitre +=       `</div>`;
               listeMediaTitre +=   `</article>`;
 
               mediaLightBoxTitre += `<div class="image-lightbox">`
-              mediaLightBoxTitre += `  <span class="fermer" onclick="fermerModal()">&times;</span>`
+              //mediaLightBoxTitre += `  <span class="fermer" onclick="fermerModal()">&times;</span>`
+              mediaLightBoxTitre += `  <button class="fermer" aria-label="close dialog" onclick="fermerModal()">&times;</button>`
               mediaLightBoxTitre += `  <div class="imagetitre">`
               mediaLightBoxTitre += `    <div class="imagePrecSuiv">`
-              mediaLightBoxTitre += `      <a class="precedant" onclick="plusImages(-1)">&#10094;</a>`
+              mediaLightBoxTitre += `      <button class="precedant" aria-label="Previous image" onclick="plusImages(-1)">&#10094;</button>`
 
               if (mediaPhotographer[i].video) {
                 mediaLightBoxTitre +=       `<video controls><source src="assets/images/${mediaPhotographer[i].video}" type="video/mp4"></video>`;
@@ -275,7 +290,7 @@ export function mediaFactory() {
                 mediaLightBoxTitre +=       `<img src="assets/images/${mediaPhotographer[i].image}" alt="Lilac breasted roller">`;
               }
 
-              mediaLightBoxTitre += `      <a class="suivant" onclick="plusImages(1)">&#10095;</a>`
+              mediaLightBoxTitre += `      <button class="suivant" aria-label="Next image" onclick="plusImages(1)">&#10095;</button>`
               mediaLightBoxTitre += `    </div>`
               mediaLightBoxTitre += `    <div class="titre-lightbox">${mediaPhotographer[i].title}</div>`
               mediaLightBoxTitre += `  </div>`
@@ -328,28 +343,31 @@ export function mediaFactory() {
               listeMediaDate +=   '<article>'
 
               if (mediaPhotographer[i].video != undefined) {
-                listeMediaDate +=       `<video onclick="ouvrirModal();imageActuelle(${1+i})"><source src="assets/images/${mediaPhotographer[i].video}" type="video/mp4" ></video>`
+                listeMediaDate +=       `<button onclick="ouvrirModal();imageActuelle(${1+i})"><video><source src="assets/images/${mediaPhotographer[i].video}" type="video/mp4" ></video></button>`
               }
               if (mediaPhotographer[i].image != undefined) {
-                listeMediaDate +=       `<img src="assets/images/${mediaPhotographer[i].image}" onclick="ouvrirModal();imageActuelle(${1+i})" alt="Lilac breasted roller, closeup view">`
+                listeMediaDate +=       `<button onclick="ouvrirModal();imageActuelle(${1+i})" role="button" aria-pressed="true"><img src="assets/images/${mediaPhotographer[i].image}" alt="Lilac breasted roller, closeup view"></button>`
               }
               listeMediaDate +=       `<div class="titrecoeur">`
               listeMediaDate +=         `<h3 class="productName">${mediaPhotographer[i].title}</h3>`
               listeMediaDate +=         `<div class="like">`
               listeMediaDate +=           `<h3 class="nombrelike">${mediaPhotographer[i].likes}</h3>`
-              listeMediaDate +=           `<div class="coeur" aria-label="likes">`
-              listeMediaDate +=             `<i class="fa-solid fa-heart"></i>`
-              listeMediaDate +=           `</div>`
+              listeMediaDate +=             `<button>`
+              listeMediaDate +=               `<div class="coeur" aria-label="likes">`
+              listeMediaDate +=                 `<i class="fa-solid fa-heart"></i>`
+              listeMediaDate +=               `</div>`
+              listeMediaDate +=             `</button>`
               listeMediaDate +=         `</div>`
               listeMediaDate +=       `</div>`
               listeMediaDate +=   `</article>`
 
 
               mediaLightBoxDate += `<div class="image-lightbox">`
-              mediaLightBoxDate += `  <span class="fermer" onclick="fermerModal()">&times;</span>`
+              //mediaLightBoxDate += `  <span class="fermer" onclick="fermerModal()">&times;</span>`
+              mediaLightBoxDate += `  <button class="fermer" aria-label="close dialog" onclick="fermerModal()">&times;</button>`
               mediaLightBoxDate += `  <div class="imagetitre">`
               mediaLightBoxDate += `    <div class="imagePrecSuiv">`
-              mediaLightBoxDate += `      <a class="precedant" onclick="plusImages(-1)">&#10094;</a>`
+              mediaLightBoxDate += `      <button class="precedant" aria-label="Previous image" onclick="plusImages(-1)">&#10094;</button>`
 
               if (mediaPhotographer[i].video) {
                 mediaLightBoxDate +=       `<video controls><source src="assets/images/${mediaPhotographer[i].video}" type="video/mp4"></video>`
@@ -358,7 +376,7 @@ export function mediaFactory() {
                 mediaLightBoxDate +=       `<img src="assets/images/${mediaPhotographer[i].image}" alt="Lilac breasted roller">`
               }
 
-              mediaLightBoxDate += `      <a class="suivant" onclick="plusImages(1)">&#10095;</a>`
+              mediaLightBoxDate += `      <button class="suivant" aria-label="Next image" onclick="plusImages(1)">&#10095;</button>`
               mediaLightBoxDate += `    </div>`
               mediaLightBoxDate += `    <div class="titre-lightbox">${mediaPhotographer[i].title}</div>`
               mediaLightBoxDate += `  </div>`
@@ -430,10 +448,24 @@ export function mediaFactory() {
             //console.log(totalLikeCoe);
             const reducers = (accumulator, currentValue) => accumulator + currentValue;
             let totalLikeCoeurs = totalLikeCoe.reduce(reducers);
-            console.log(totalLikeCoeurs);
+            //console.log(totalLikeCoeurs);
             document.querySelector('.totalNombreLike').innerHTML = totalLikeCoeurs;
           }
         )
+      }
+
+      document.onkeydown = (evenement) => {
+        evenement = evenement || window.event;
+        if (evenement.key === 'ArrowLeft') {
+          console.log('flèche à gauche appuyée'),
+          plusImages(-1);
+        } else if (evenement.key === 'ArrowRight') {
+          console.log('flèche à droite appuyée'),
+          plusImages(1);
+        } else if (evenement.key === 'Escape') {
+          console.log('escape appuyée'),
+          fermerModal();
+        }
       }
     }    
   }

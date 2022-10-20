@@ -1,6 +1,37 @@
+/*import {init} from '../pages/photographers.js';
+import {mediaFactory} from '../factories/media.js';
+import {donneesPhotographe} from '../pages/photographers.js';
+import {photographerFactory} from '../factories/photographer.js';
+import {displayData} from '../pages/photographers.js';*/
+
+//mediaFactory();
+
 function displayModal() {
   const modal = document.getElementById("contact_modal");
   modal.style.display = "block";
+
+  //let header = document.querySelector("#body > header");
+  let header = document.querySelector("#body > header > a > img");
+  header.setAttribute('disabled', '');
+
+  let main = document.querySelector("#main > div > article > button");
+  main.ariaHidden = "true";
+
+  let nav = document.querySelector("#selectionTri > button");
+  nav.ariaHidden = "true";
+
+  let section = document.querySelector("#realisations");
+  section.ariaHidden = "true";
+
+  let blocliketarif = document.querySelector("#body > div.blocliketarif");
+  blocliketarif.ariaHidden = "true";
+
+  let lightbox = document.querySelector("#lightbox");
+  lightbox.ariaHidden = "true";
+
+  let formulaire = document.querySelector("#contact_modal");
+  formulaire.ariaHidden = "false";
+
   controleFormulaire();
 }
 
@@ -89,10 +120,18 @@ function envoyerFormulaire() {
   console.log(donneesformulaire);
   formulaire.push(donneesformulaire);
   console.log(formulaire);
+  let donneesDuFormulaire = localStorage.setItem("localStoragedonneesFormulaire", JSON.stringify(donneesformulaire));
+  //let donneesDuFormulaire1 = localStorage.setItem("localStoragedonneesFormulaire", JSON.parse(donneesformulaire));
+  console.log(donneesDuFormulaire);
+  return false;
 
-  if (document.querySelector("#first").value && document.querySelector("#last").value && document.querySelector("#email").value && document.querySelector("#message").value && document.querySelector("#firstMessageErreur") == "" && document.querySelector("#lastMessageErreur") == "" &&  document.querySelector("#emailMessageErreur") == "") { 
-    closeModal()
-
-  }
+  /*if (document.querySelector("#first").value && document.querySelector("#last").value && document.querySelector("#email").value && document.querySelector("#message").value && document.querySelector("#firstMessageErreur") == "" && document.querySelector("#lastMessageErreur") == "" &&  document.querySelector("#emailMessageErreur") == "") { 
+    closeModal();
+    init();
+    donneesPhotographe(); 
+    photographerFactory();
+    displayData();
+    mediaFactory();
+  }*/
 //}
 }

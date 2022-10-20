@@ -13,7 +13,7 @@ let donnees = JSON.parse(localStorage.getItem("photographersMedia"));
 const photographers = donnees.photographers;
 console.log(photographers);
 
-function donneesPhotographe() {
+export function donneesPhotographe() {
   for (let i = 0; i < photographers.length; i++) {
     // Affichage des informations concernant le photographe
     if (photographers[i].id == id) {
@@ -39,8 +39,7 @@ function donneesPhotographe() {
 }
 
 import {photographerFactory} from '../factories/photographer.js';
-
-async function displayData(photographe) {
+export async function displayData(photographe) {
   const photographersSection = document.querySelector(".photograph-header");
 
   photographe.forEach((photographer) => {
@@ -50,7 +49,7 @@ async function displayData(photographe) {
   });
 }
 
-async function init() {
+export async function init() {
   // Récupère les datas des photographes
   const { photographe } = donneesPhotographe();
   console.log({ photographe });
