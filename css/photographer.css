@@ -49,14 +49,7 @@
     margin: 0 100px;
     margin-bottom: 100px;
     display: grid;
-    /*flex-direction: row;
-    justify-content: space-around;*/
-    
-    /*width: 100%;*/
-    /*display:grid;
-    vertical-align: middle;*/
     align-items: center;
-
 }
 
 .photograph-header h1 {
@@ -138,7 +131,6 @@ article div h3 {
     font-size: 20px;
     font-weight: bold;
     color: white;
-    /*padding: 11px;*/
     width: 170px;
     height: 70px;
     border: none;
@@ -189,7 +181,6 @@ article div h3 {
 
 hr {
     width: 140px;
-    /*height: 3px;*/
     margin: 0px;
     color: white;
     margin-left: 15px;
@@ -314,9 +305,6 @@ form input {
     flex-direction: row;
     align-items: center;
 }
-/*.liketarif {
-
-}*/
 .tarifJour {
     display: flex;
     flex-direction: row;
@@ -345,26 +333,18 @@ form input {
 nav {
     text-align: center;
 }
-/*.menu {
-display: inline-block;
-}*/
 .menu > ul {
-    /*line-height: 50px;*/
     cursor: pointer;
     font-size: 20px;
     text-align: left;
     margin: 0;
 }
 .sous-menu {
-    /*padding-bottom: 5px;*/
     border-radius: 5px;
     background-color: #901C1C;
     width: 170px;
-    /*padding-left: 10px;
-    padding-right: 10px;*/
     padding-left: 0px;
     padding-right: 0px;
-
     position: absolute;
     left: 84px;
     bottom: -174px;
@@ -379,7 +359,6 @@ display: inline-block;
     margin-bottom: 0;
     font: 20px arial;
     font-weight: bold;
-    /*line-height: 70px;*/
 }
 .sous-menu li p {
     display: flex;
@@ -388,17 +367,9 @@ display: inline-block;
     align-items: center;
     margin-bottom: 0;
     margin-top: 0px;
-    /*font-weight: bold;*/
     font: 20px arial;
     font-weight: bold;
-    /*line-height: 70px;*/
 }
-/*.espace {
-    height: 2px;
-    background-color: white;
-    margin-left: -10px;
-    margin-right: -10px;
-}*/
 
 #boutonPopularite:hover,
 #boutonPopularite:focus,
@@ -415,7 +386,6 @@ display: inline-block;
     font-weight: bold;
     color: white;
     padding: 11px;
-    /*width: 171px;*/
     height: 70px;
     border: none;
     background-color: #901C1C;
@@ -425,13 +395,6 @@ display: inline-block;
     left: 84px;
     bottom: -30px;
 }
-
-/*.valeur-sous-menu li p {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}*/
 
 .valeur-sous-menu p i {
     padding-left: 15px;
@@ -453,11 +416,6 @@ display: inline-block;
     left:0;
     top: 400px;
 }
-
-/*.sous-menu:hover li,
-.sous-menu:focus li {
-    transform: scale(1);
-}*/
 
 .menu label {
     margin-right: 10px;

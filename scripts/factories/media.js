@@ -114,7 +114,6 @@ export function mediaFactory() {
       popularite.addEventListener("click", () =>
         {
           mediaPhotographer.sort((a, b) => (a.likes > b.likes ? -1 : 1));
-          console.log(mediaPhotographer);
           let listeMediaPopularite = '';
           let mediaLightBoxPopularite = '';
 
@@ -189,7 +188,6 @@ export function mediaFactory() {
       titre.addEventListener("click", () =>
         {
           mediaPhotographer.sort((a, b) => (a.title > b.title ? 1 : -1));
-          console.log(mediaPhotographer);
           let listeMediaTitre = '';
           let mediaLightBoxTitre = '';
 
@@ -245,7 +243,6 @@ export function mediaFactory() {
 
           let menuDeroulant1 = document.querySelector('.sous-menu');
           menuDeroulant1.style.display = "none";
-          console.log(menuDeroulant1);
 
           like();
           totallikes();
@@ -261,13 +258,11 @@ export function mediaFactory() {
 
     // Fonction de tri des médias du photographe par date
     function triDate() {
-      //let date = document.querySelector("#date");
       let date = document.querySelector("#boutonDate");
       // Lancement de la fonction au clic
       date.addEventListener("click", () =>
         {
           mediaPhotographer.sort((a, b) => (a.date > b.date ? 1 : -1));
-          console.log(mediaPhotographer);
           let listeMediaDate = '';
           let mediaLightBoxDate = '';
 
@@ -362,7 +357,6 @@ export function mediaFactory() {
     // Fonction de calcul du nombre total de likes
     function totallikes() {
       let coeurs = document.querySelectorAll('.nombrelike');
-      //console.log(coeur);
       let totalLikeCoe = [];
       coeurs.forEach((coeur) => 
         {
@@ -379,14 +373,12 @@ export function mediaFactory() {
       document.onkeydown = (evenement) => {
         evenement = evenement || window.event;
         if (evenement.key === 'ArrowLeft') {
-          //console.log('flèche à gauche appuyée'),
           plusImages(-1);
         } else if (evenement.key === 'ArrowRight') {
-          //console.log('flèche à droite appuyée'),
           plusImages(1);
         } else if (evenement.key === 'Escape') {
-          //console.log('escape appuyée'),
           fermerModal();
+          closeModal();
         }
       }
     }

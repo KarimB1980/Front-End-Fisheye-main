@@ -12,10 +12,12 @@ export function photographerFactory(data) {
       const article = document.createElement( 'article' );
       const phototitre = document.createElement('a');
       phototitre.href = `photographer.html?id=${id}`;
+      phototitre.setAttribute("aria-label", name);
 
       const img = document.createElement( 'img' );
       img.setAttribute("src", picture);
       img.setAttribute("alt", "");
+      //img.setAttribute("aria-label", name);
       const h2 = document.createElement( 'h2' );
       h2.textContent = name;
       article.appendChild(phototitre);

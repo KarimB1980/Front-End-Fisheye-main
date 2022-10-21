@@ -1,47 +1,19 @@
-/*import {init} from '../pages/photographers.js';
-import {mediaFactory} from '../factories/media.js';
-import {donneesPhotographe} from '../pages/photographers.js';
-import {photographerFactory} from '../factories/photographer.js';
-import {displayData} from '../pages/photographers.js';*/
-
-//mediaFactory();
-
+// Fonction d'affichage du formulaire
 function displayModal() {
   const modal = document.getElementById("contact_modal");
   modal.style.display = "block";
 
-  //let header = document.querySelector("#body > header");
-  let header = document.querySelector("#body > header > a > img");
-  header.setAttribute('disabled', '');
-
-  let main = document.querySelector("#main > div > article > button");
-  main.ariaHidden = "true";
-
-  let nav = document.querySelector("#selectionTri > button");
-  nav.ariaHidden = "true";
-
-  let section = document.querySelector("#realisations");
-  section.ariaHidden = "true";
-
-  let blocliketarif = document.querySelector("#body > div.blocliketarif");
-  blocliketarif.ariaHidden = "true";
-
-  let lightbox = document.querySelector("#lightbox");
-  lightbox.ariaHidden = "true";
-
-  let formulaire = document.querySelector("#contact_modal");
-  formulaire.ariaHidden = "false";
-
   controleFormulaire();
 }
 
+// Fonction de fermeture du formulaire
 function closeModal() {
   const modal = document.getElementById("contact_modal");
   modal.style.display = "none";
 }
 
+// Fonction de conrôle du formulaire
 function controleFormulaire() {
-
   // Contrôle du champ "Prénom" en vérifiant qu'il ne comporte que des minuscules, majuscules, tirets, espaces et 2 à 100 caractères
   document.getElementById('first').onchange = function prenom() {
     const firstName = document.getElementById('first').value;
@@ -106,9 +78,9 @@ function controleFormulaire() {
   }
 }
 
+// Fonction de contrôle et d'envoi des valeurs du formulaire dans la console
 document.getElementById('envoyer').onclick = function (envoyer) {
   envoyer.preventDefault();
-  console.log("envoyer ça marche");
 
   if (document.getElementById('first').value == "") {
     // Contour de couleur bleue du champ "Prénom"

@@ -1,5 +1,4 @@
 // Fonction fetch du fichier photographers.json
-//export 
 function fetchPhotographersMedia() {
   fetch('../../data/photographers.json')
   .then(function(reponse) {
@@ -15,7 +14,6 @@ function fetchPhotographersMedia() {
   })
 }
 
-//export 
 async function getPhotographers() {
   // Rappel de la fonction fetch du fichier photographers.json
   fetchPhotographersMedia();
@@ -27,7 +25,6 @@ async function getPhotographers() {
 
   // Retour du tableau photographers une fois
   return ({photographers: [...photographers]})
-  
 }
 
 //------------------------------------------------------------------------------------------------------------------------//
