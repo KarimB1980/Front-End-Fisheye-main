@@ -113,7 +113,7 @@ export function photographerFactory(data) {
 		htmlPhotographers +=`	 <div class="modal" aria-labelledby="Contact me ${name}">`
 		htmlPhotographers +=`	   <header>`
     htmlPhotographers +=`      <h2>Contactez-moi</h2>`
-    htmlPhotographers +=`      <img src="assets/icons/close.svg" alt="Contact Me" onclick="closeModal()">`
+    htmlPhotographers +=`      <button id="fermerModal" aria-label="Close Contact me" onclick="closeModal()"><img src="assets/icons/close.svg"  alt="Contact Me"></button>`
     htmlPhotographers +=`    </header>`
 		htmlPhotographers +=`    <form id="formulaire" role=”dialog”>`
 		htmlPhotographers +=`	     <div>`
@@ -132,7 +132,7 @@ export function photographerFactory(data) {
     htmlPhotographers +=`        <p id="messageMessageErreur"></p>`
 		htmlPhotographers +=`		   </div>`
     //htmlPhotographers +=`      <button id="envoyer" onclick="envoyerFormulaire()">Envoyer</button>`
-    htmlPhotographers +=`      <button id="envoyer">Envoyer</button>`
+    htmlPhotographers +=`      <button id="envoyer" aria-label="Send">Envoyer</button>`
 
 		htmlPhotographers +=`    </form>`
 		htmlPhotographers +=`	 </div>`
