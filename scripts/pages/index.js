@@ -1,54 +1,32 @@
-export function fetchPhotographersMedia() {
+// Fonction fetch du fichier photographers.json
+//export 
+function fetchPhotographersMedia() {
   fetch('../../data/photographers.json')
   .then(function(reponse) {
     if (reponse.ok) {
       return reponse.json();
     }
   })
-  .then(function(datas) {
-    // Récupération des données dans datas et injection dans le localstorage sous le nom de clef "photographersMedia"
-    const photographersMedia = datas;
-    localStorage.setItem("photographersMedia", JSON.stringify(photographersMedia));
-    console.log(photographersMedia);
+  // Récupération des données dans datas et injection dans le localstorage sous le nom de clef "photographersMedia"
+  .then(function datasPhoto(datas) {
+    localStorage.setItem("photographersMedia", JSON.stringify(datas));
     console.log(datas);
-
     return datas;
   })
 }
 
-export async function getPhotographers() {
-
+//export 
+async function getPhotographers() {
+  // Rappel de la fonction fetch du fichier photographers.json
   fetchPhotographersMedia();
+  // Récupération des données dans le localstorage sous le nom de clef "photographersMedia"
   let donnees = JSON.parse(localStorage.getItem("photographersMedia"));
-  //console.log(donnees.photographers);
 
-  // Penser à remplacer par les données récupérées dans le json
-  const photographers = donnees.photographers;
-  console.log(photographers);
+  // Création d'une variable pour récupérer les données des photographes
+  let photographers = donnees.photographers;
 
-    /*{
-      "name": "Ma data test",
-      "id": 1,
-      "city": "Paris",
-      "country": "France",
-      "tagline": "Ceci est ma data test",
-      "price": 400,
-      "portrait": "account.png"
-    },
-    {
-      "name": "Autre data test",
-      "id": 2,
-      "city": "Londres",
-      "country": "UK",
-      "tagline": "Ceci est ma data test 2",
-      "price": 500,
-      "portrait": "account.png"
-    },*/
-  //console.log(photographers);
-  // et bien retourner le tableau photographers seulement une fois
-  return ({
-    //photographers: [...photographers, ...photographers, ...photographers]})
-    photographers: [...photographers]})
+  // Retour du tableau photographers une fois
+  return ({photographers: [...photographers]})
   
 }
 
@@ -56,6 +34,7 @@ export async function getPhotographers() {
 
 import {photographerFactory} from '../factories/photographer.js';
 
+// Fonction d'affichage des photographes
 async function displayData(photographers) {
   const photographersSection = document.querySelector(".photographer_section");
 

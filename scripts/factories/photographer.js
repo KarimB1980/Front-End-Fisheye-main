@@ -1,8 +1,8 @@
+// Fonction de gestion du DOM de la page index.html et photographers.html
 export function photographerFactory(data) {
-//  const { name, portrait } = data;
 
   var p = window.location.pathname;
-
+  // Modification du DOM de la page index.html
   if (p.match(/^\/?index.html/)) {
     const { name, portrait, city, country, tagline, price, id } = data;
 
@@ -48,7 +48,7 @@ export function photographerFactory(data) {
     }
     return { name, picture, getUserCardDOM }
   }
-
+  // Modification du DOM de la page photographer.html
   else if (p.match(/^\/?photographer.html/)) {
 
     const { name, portrait, city, country, tagline, price } = data;
@@ -81,10 +81,8 @@ export function photographerFactory(data) {
     htmlPhotographers +=`      </div>`
     htmlPhotographers +=`    <ul class="sous-menu" style="display: none">`
     htmlPhotographers +=`      <button id="boutonPopularite" tabindex="0"><li id="popularite"><p> Popularité <i class="fa fa-angle-up" aria-hidden="true"></i></p><li></button>`
-    //htmlPhotographers +=`      <div class="espace"></div>`
     htmlPhotographers +=`      <hr>`
     htmlPhotographers +=`      <button id="boutonDate" tabindex="0"><li id="date">Date<li></button>`
-    //htmlPhotographers +=`      <div class="espace"></div>`
     htmlPhotographers +=`      <hr>`
     htmlPhotographers +=`      <button id="boutonTitre" tabindex="0"><li id="titre">Titre<li></button>`
     htmlPhotographers +=`    </ul>`
@@ -131,15 +129,10 @@ export function photographerFactory(data) {
     htmlPhotographers +=`        <textarea rows="10" cols="20" aria-multiline="true" role="textbox" id="message" name="message" required minlength="2" maxlength="200"></textarea>`
     htmlPhotographers +=`        <p id="messageMessageErreur"></p>`
 		htmlPhotographers +=`		   </div>`
-    //htmlPhotographers +=`      <button id="envoyer" onclick="envoyerFormulaire()">Envoyer</button>`
     htmlPhotographers +=`      <button id="envoyer" aria-label="Send">Envoyer</button>`
-
 		htmlPhotographers +=`    </form>`
 		htmlPhotographers +=`	 </div>`
 		htmlPhotographers +=`</div>`
-    /*htmlPhotographers +=`<script src="/scripts/pages/photographer.js" type="module"></script>`
-    htmlPhotographers +=`<script defer src="/scripts/utils/lightbox.js"></script>`
-    htmlPhotographers +=`<script defer src="/scripts/utils/contactForm.js"></script>`*/
 
     // Injection du code html dans le body
     document.querySelector("#body").innerHTML = htmlPhotographers;

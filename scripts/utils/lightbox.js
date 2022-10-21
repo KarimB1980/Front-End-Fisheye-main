@@ -1,4 +1,4 @@
-// Fonction ouvertuyre de la Modal
+// Fonction ouverture de la Modal
 function ouvrirModal() {
   document.getElementById("lightbox").style.display = "block";
   document.querySelector(".contenu-lightbox").style.display = "block";
@@ -10,8 +10,6 @@ function fermerModal() {
 }
 
 let imageIndex = 1;
-//visualiserImage(imageIndex);
-//visualiserImage(imageIndex);
 
 // Fonction image précédente/suivante
 function plusImages(n) {
@@ -32,9 +30,5 @@ function visualiserImage(n) {
   for (i = 0; i < images.length; i++) {
     images[i].style.display = "none";
   }
-
-  //console.log(document.querySelector("#lightbox"));
-  //if (document.querySelector("#lightbox").style.display = "block") {
-    images[imageIndex-1].style.display = "block";
-  //}
+  images[imageIndex-1].style.display = "block";
 }
