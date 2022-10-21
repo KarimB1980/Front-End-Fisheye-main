@@ -4,8 +4,8 @@ export function photographerFactory(data) {
   var p = window.location.pathname;
   // Modification du DOM de la page index.html
   if (p.match(/^\/?index.html/)) {
-    const { name, portrait, city, country, tagline, price, id } = data;
 
+    const { name, portrait, city, country, tagline, price, id } = data;
     const picture = `assets/photographers/${portrait}`;
 
     function getUserCardDOM() {

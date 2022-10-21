@@ -46,6 +46,20 @@ async function displayData(photographers) {
 }
 
 async function init() {
+  //Création de l'en-tête de la page index.html
+  let enteteindex = "";
+
+  enteteindex += `<header>`
+  enteteindex += `  <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"></a>`
+  enteteindex += `  <h1>Nos photographes</h1>`
+  enteteindex += `</header>`
+  enteteindex += `<main id="main">`
+  enteteindex += `  <div class="photographer_section"></div>`
+  enteteindex += `</main>`
+
+  // Injection du code html dans le body
+  document.querySelector("#body").innerHTML = enteteindex;
+  
   // Récupère les datas des photographes
   const { photographers } = await getPhotographers();
   //console.log({ photographers });
