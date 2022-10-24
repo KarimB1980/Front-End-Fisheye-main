@@ -27,9 +27,10 @@ export function donneesPhotographe() {
       localStorage.setItem("photographe", JSON.stringify(donneesDuPhotographe));
     }
   }
+  // Création d'une variable pour récupérer les données du photographe
   let photographe = [JSON.parse(localStorage.getItem("photographe"))];
-  return ({
-    photographe: [...photographe]})
+  // Retour du tableau photographe une fois
+  return ({photographe: [...photographe]})
 }
 
 import {photographerFactory} from '../factories/photographer.js';

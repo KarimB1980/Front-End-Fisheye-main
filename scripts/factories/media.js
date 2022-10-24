@@ -9,7 +9,7 @@ export function mediaFactory() {
     let urlcourante = document.location.href;
     let url = new URL(urlcourante);
     let id = url.searchParams.get("id");
-    const medias = donnees.media;
+    let medias = donnees.media;
 
     let totalLikePhotos = [];
     let mediaPhotographer = [];
@@ -18,13 +18,14 @@ export function mediaFactory() {
       // Calcul de la somme des likes et création d'un tableau "mediaPhotographer" contenant les réalisations du photographe
       if (medias[i].photographerId == id) {
 
-        // Calcul de la somme des like et injection du résultat dans le DOM
+        // Calcul de la somme des likes
         totalLikePhotos.push(medias[i].likes);
-        const reducers = (accumulator, currentValue) => accumulator + currentValue;
+        let reducers = (accumulator, currentValue) => accumulator + currentValue;
         let totalLike = totalLikePhotos.reduce(reducers);
-
+        // Injection du résultat dans le DOM
         document.querySelector('.totalNombreLike').innerHTML = totalLike;
 
+        // Récupération des données du photographe et injection dans le tableau "mediaPhotographer"
         let donneesmediaphotographer = {
           title: medias[i].title,
           likes: medias[i].likes,
@@ -85,8 +86,8 @@ export function mediaFactory() {
     let idRealisations = document.querySelector('#realisations')
     idRealisations.innerHTML = listeMediaPopularite;
 
-    const b = document.querySelector(".contenu-lightbox")
-    b.innerHTML= mediaLightBoxPopularite;
+    let contenuLightbox = document.querySelector(".contenu-lightbox")
+    contenuLightbox.innerHTML= mediaLightBoxPopularite;
 
     //----------------------------------------------------------------------------------------------------------//
 
@@ -114,60 +115,11 @@ export function mediaFactory() {
       popularite.addEventListener("click", () =>
         {
           mediaPhotographer.sort((a, b) => (a.likes > b.likes ? -1 : 1));
-          let listeMediaPopularite = '';
-          let mediaLightBoxPopularite = '';
 
-          for (let i = 0; i < mediaPhotographer.length; i++) {
-            // Affichage des réalisations du photographe triées par popularité et création du contenu de la lightbox
-            listeMediaPopularite +=   '<article>';
+          mediaLightbox();
 
-            if (mediaPhotographer[i].video != undefined) {
-              listeMediaPopularite +=       `<button onclick="ouvrirModal();imageActuelle(${1+i})"><video><source src="assets/images/${mediaPhotographer[i].video}" type="video/mp4" ></video></button>`;
-            }
-            if (mediaPhotographer[i].image != undefined) {
-              listeMediaPopularite +=       `<button onclick="ouvrirModal();imageActuelle(${1+i})" role="button" aria-pressed="true"><img src="assets/images/${mediaPhotographer[i].image}" alt="Lilac breasted roller, closeup view"></button>`;
-            }
-            listeMediaPopularite +=       `<div class="titrecoeur">`;
-            listeMediaPopularite +=         `<h3 class="productName">${mediaPhotographer[i].title}</h3>`;
-            listeMediaPopularite +=         `<div class="like">`;
-            listeMediaPopularite +=           `<h3 class="nombrelike">${mediaPhotographer[i].likes}</h3>`;
-            listeMediaPopularite +=             `<button>`
-            listeMediaPopularite +=               `<div class="coeur" aria-label="likes">`;
-            listeMediaPopularite +=                 `<i class="fa-solid fa-heart"></i>`;
-            listeMediaPopularite +=               `</div>`;
-            listeMediaPopularite +=             `</button>`
-            listeMediaPopularite +=         `</div>`
-            listeMediaPopularite +=       `</div>`;
-            listeMediaPopularite +=   `</article>`;
-
-            mediaLightBoxPopularite += `<div class="image-lightbox">`
-            mediaLightBoxPopularite += `  <button class="fermer" aria-label="close dialog" onclick="fermerModal()">&times;</button>`
-            mediaLightBoxPopularite += `  <div class="imagetitre">`
-            mediaLightBoxPopularite += `    <div class="imagePrecSuiv">`
-            mediaLightBoxPopularite += `      <button class="precedant" aria-label="Previous image" onclick="plusImages(-1)">&#10094;</button>`
-
-            if (mediaPhotographer[i].video) {
-              mediaLightBoxPopularite +=       `<video controls><source src="assets/images/${mediaPhotographer[i].video}" type="video/mp4"></video>`;
-            }
-            if (mediaPhotographer[i].image) {
-              mediaLightBoxPopularite +=       `<img src="assets/images/${mediaPhotographer[i].image}" alt="Lilac breasted roller">`;
-            }
-
-            mediaLightBoxPopularite += `      <button class="suivant" aria-label="Next image" onclick="plusImages(1)">&#10095;</button>`
-            mediaLightBoxPopularite += `    </div>`
-            mediaLightBoxPopularite += `    <div class="titre-lightbox">${mediaPhotographer[i].title}</div>`
-            mediaLightBoxPopularite += `  </div>`
-            mediaLightBoxPopularite += `</div>`
-          }
-          // Injection du nouveau code html dans le DOM
-          let idRealisations = document.querySelector('#realisations');
-          idRealisations.innerHTML = listeMediaPopularite;
-
-          const b = document.querySelector(".contenu-lightbox");
-          b.innerHTML= mediaLightBoxPopularite;
-
-          const c = document.querySelector("#selectionTri");
-          c.innerHTML =`<button tabindex="0" class="valeur-sous-menu"><p class="valeurTriSousMenu"> Popularité <i class="fa fa-angle-down"></i></p></button>`
+          let clefTri = document.querySelector("#selectionTri");
+          clefTri.innerHTML =`<button tabindex="0" class="valeur-sous-menu"><p class="valeurTriSousMenu"> Popularité <i class="fa fa-angle-down"></i></p></button>`
 
           like();
           totallikes();
@@ -188,58 +140,11 @@ export function mediaFactory() {
       titre.addEventListener("click", () =>
         {
           mediaPhotographer.sort((a, b) => (a.title > b.title ? 1 : -1));
-          let listeMediaTitre = '';
-          let mediaLightBoxTitre = '';
 
-          for (let i = 0; i < mediaPhotographer.length; i++) {
-            // Affichage des réalisations du photographe triées par titre et création du contenu de la lightbox
-            listeMediaTitre +=   '<article>';
+          mediaLightbox();
 
-            if (mediaPhotographer[i].video != undefined) {
-              listeMediaTitre +=       `<button onclick="ouvrirModal();imageActuelle(${1+i})"><video><source src="assets/images/${mediaPhotographer[i].video}" type="video/mp4" ></video></button>`;
-            }
-            if (mediaPhotographer[i].image != undefined) {
-              listeMediaTitre +=       `<button onclick="ouvrirModal();imageActuelle(${1+i})" role="button" aria-pressed="true"><img src="assets/images/${mediaPhotographer[i].image}" alt="Lilac breasted roller, closeup view"></button>`;
-            }
-            listeMediaTitre +=       `<div class="titrecoeur">`;
-            listeMediaTitre +=         `<h3 class="productName">${mediaPhotographer[i].title}</h3>`;
-            listeMediaTitre +=         `<div class="like">`;
-            listeMediaTitre +=           `<h3 class="nombrelike">${mediaPhotographer[i].likes}</h3>`;
-            listeMediaTitre +=             `<button>`
-            listeMediaTitre +=               `<div class="coeur" aria-label="likes">`;
-            listeMediaTitre +=                 `<i class="fa-solid fa-heart"></i>`;
-            listeMediaTitre +=               `</div>`;
-            listeMediaTitre +=             `</button>`
-            listeMediaTitre +=         `</div>`
-            listeMediaTitre +=       `</div>`;
-            listeMediaTitre +=   `</article>`;
-
-            mediaLightBoxTitre += `<div class="image-lightbox">`
-            mediaLightBoxTitre += `  <button class="fermer" aria-label="close dialog" onclick="fermerModal()">&times;</button>`
-            mediaLightBoxTitre += `  <div class="imagetitre">`
-            mediaLightBoxTitre += `    <div class="imagePrecSuiv">`
-            mediaLightBoxTitre += `      <button class="precedant" aria-label="Previous image" onclick="plusImages(-1)">&#10094;</button>`
-            if (mediaPhotographer[i].video) {
-              mediaLightBoxTitre +=       `<video controls><source src="assets/images/${mediaPhotographer[i].video}" type="video/mp4"></video>`;
-            }
-            if (mediaPhotographer[i].image) {
-              mediaLightBoxTitre +=       `<img src="assets/images/${mediaPhotographer[i].image}" alt="Lilac breasted roller">`;
-            }
-            mediaLightBoxTitre += `      <button class="suivant" aria-label="Next image" onclick="plusImages(1)">&#10095;</button>`
-            mediaLightBoxTitre += `    </div>`
-            mediaLightBoxTitre += `    <div class="titre-lightbox">${mediaPhotographer[i].title}</div>`
-            mediaLightBoxTitre += `  </div>`
-            mediaLightBoxTitre += `</div>`
-          }
-          // Injection du nouveau code html dans le DOM
-          let idRealisations = document.querySelector('#realisations');
-          idRealisations.innerHTML = listeMediaTitre;
-
-          const b = document.querySelector(".contenu-lightbox");
-          b.innerHTML= mediaLightBoxTitre;
-
-          const c = document.querySelector("#selectionTri");
-          c.innerHTML =`<button tabindex="0" class="valeur-sous-menu"><p class="valeurTriSousMenu"> Titre <i class="fa fa-angle-down"></i></p></button>`
+          let clefTri = document.querySelector("#selectionTri");
+          clefTri.innerHTML =`<button tabindex="0" class="valeur-sous-menu"><p class="valeurTriSousMenu"> Titre <i class="fa fa-angle-down"></i></p></button>`
 
           let menuDeroulant1 = document.querySelector('.sous-menu');
           menuDeroulant1.style.display = "none";
@@ -263,58 +168,11 @@ export function mediaFactory() {
       date.addEventListener("click", () =>
         {
           mediaPhotographer.sort((a, b) => (a.date > b.date ? 1 : -1));
-          let listeMediaDate = '';
-          let mediaLightBoxDate = '';
 
-          for (let i = 0; i < mediaPhotographer.length; i++) {
-            // Affichage des réalisations du photographe triées par date et création du contenu de la lightbox
-            listeMediaDate +=   '<article>'
+          mediaLightbox();
 
-            if (mediaPhotographer[i].video != undefined) {
-              listeMediaDate +=       `<button onclick="ouvrirModal();imageActuelle(${1+i})"><video><source src="assets/images/${mediaPhotographer[i].video}" type="video/mp4" ></video></button>`
-            }
-            if (mediaPhotographer[i].image != undefined) {
-              listeMediaDate +=       `<button onclick="ouvrirModal();imageActuelle(${1+i})" role="button" aria-pressed="true"><img src="assets/images/${mediaPhotographer[i].image}" alt="Lilac breasted roller, closeup view"></button>`
-            }
-            listeMediaDate +=       `<div class="titrecoeur">`
-            listeMediaDate +=         `<h3 class="productName">${mediaPhotographer[i].title}</h3>`
-            listeMediaDate +=         `<div class="like">`
-            listeMediaDate +=           `<h3 class="nombrelike">${mediaPhotographer[i].likes}</h3>`
-            listeMediaDate +=             `<button>`
-            listeMediaDate +=               `<div class="coeur" aria-label="likes">`
-            listeMediaDate +=                 `<i class="fa-solid fa-heart"></i>`
-            listeMediaDate +=               `</div>`
-            listeMediaDate +=             `</button>`
-            listeMediaDate +=         `</div>`
-            listeMediaDate +=       `</div>`
-            listeMediaDate +=   `</article>`
-
-            mediaLightBoxDate += `<div class="image-lightbox">`
-            mediaLightBoxDate += `  <button class="fermer" aria-label="close dialog" onclick="fermerModal()">&times;</button>`
-            mediaLightBoxDate += `  <div class="imagetitre">`
-            mediaLightBoxDate += `    <div class="imagePrecSuiv">`
-            mediaLightBoxDate += `      <button class="precedant" aria-label="Previous image" onclick="plusImages(-1)">&#10094;</button>`
-            if (mediaPhotographer[i].video) {
-              mediaLightBoxDate +=       `<video controls><source src="assets/images/${mediaPhotographer[i].video}" type="video/mp4"></video>`
-            }
-            if (mediaPhotographer[i].image) {
-              mediaLightBoxDate +=       `<img src="assets/images/${mediaPhotographer[i].image}" alt="Lilac breasted roller">`
-            }
-            mediaLightBoxDate += `      <button class="suivant" aria-label="Next image" onclick="plusImages(1)">&#10095;</button>`
-            mediaLightBoxDate += `    </div>`
-            mediaLightBoxDate += `    <div class="titre-lightbox">${mediaPhotographer[i].title}</div>`
-            mediaLightBoxDate += `  </div>`
-            mediaLightBoxDate += `</div>`
-          }
-          // Injection du nouveau code html dans le DOM
-          let idRealisations = document.querySelector('#realisations')
-          idRealisations.innerHTML = listeMediaDate;
-
-          const b = document.querySelector(".contenu-lightbox");
-          b.innerHTML= mediaLightBoxDate;
-
-          const c = document.querySelector("#selectionTri");
-          c.innerHTML =`<button tabindex="0" class="valeur-sous-menu"><p class="valeurTriSousMenu"> Date <i class="fa fa-angle-down"></i></p></button>`
+          let clefTri = document.querySelector("#selectionTri");
+          clefTri.innerHTML =`<button tabindex="0" class="valeur-sous-menu"><p class="valeurTriSousMenu"> Date <i class="fa fa-angle-down"></i></p></button>`
 
           let menuDeroulant1 = document.querySelector('.sous-menu');
           menuDeroulant1.style.display = "none";
@@ -330,6 +188,62 @@ export function mediaFactory() {
       )
     }
     triDate();
+
+    // Fonction mediaLightbox pour l'affichage des medias et la création du contenu de la lightbox
+    function mediaLightbox() {
+      let listeMedia = '';
+      let mediaLightBox = '';
+
+      for (let i = 0; i < mediaPhotographer.length; i++) {
+          // Affichage des réalisations du photographe triées par popularité et création du contenu de la lightbox
+        listeMedia +=   '<article>';
+
+        if (mediaPhotographer[i].video != undefined) {
+          listeMedia +=       `<button onclick="ouvrirModal();imageActuelle(${1+i})"><video><source src="assets/images/${mediaPhotographer[i].video}" type="video/mp4" ></video></button>`;
+        }
+        if (mediaPhotographer[i].image != undefined) {
+          listeMedia +=       `<button onclick="ouvrirModal();imageActuelle(${1+i})" role="button" aria-pressed="true"><img src="assets/images/${mediaPhotographer[i].image}" alt="Lilac breasted roller, closeup view"></button>`;
+        }
+        listeMedia +=       `<div class="titrecoeur">`;
+        listeMedia +=         `<h3 class="productName">${mediaPhotographer[i].title}</h3>`;
+        listeMedia +=         `<div class="like">`;
+        listeMedia +=           `<h3 class="nombrelike">${mediaPhotographer[i].likes}</h3>`;
+        listeMedia +=             `<button>`
+        listeMedia +=               `<div class="coeur" aria-label="likes">`;
+        listeMedia +=                 `<i class="fa-solid fa-heart"></i>`;
+        listeMedia +=               `</div>`;
+        listeMedia +=             `</button>`
+        listeMedia +=         `</div>`
+        listeMedia +=       `</div>`;
+        listeMedia +=   `</article>`;
+
+        mediaLightBox += `<div class="image-lightbox">`
+        mediaLightBox += `  <button class="fermer" aria-label="close dialog" onclick="fermerModal()">&times;</button>`
+        mediaLightBox += `  <div class="imagetitre">`
+        mediaLightBox += `    <div class="imagePrecSuiv">`
+        mediaLightBox += `      <button class="precedant" aria-label="Previous image" onclick="plusImages(-1)">&#10094;</button>`
+
+        if (mediaPhotographer[i].video) {
+          mediaLightBox +=       `<video controls><source src="assets/images/${mediaPhotographer[i].video}" type="video/mp4"></video>`;
+        }
+        if (mediaPhotographer[i].image) {
+          mediaLightBox +=       `<img src="assets/images/${mediaPhotographer[i].image}" alt="Lilac breasted roller">`;
+        }
+
+        mediaLightBox += `      <button class="suivant" aria-label="Next image" onclick="plusImages(1)">&#10095;</button>`
+        mediaLightBox += `    </div>`
+        mediaLightBox += `    <div class="titre-lightbox">${mediaPhotographer[i].title}</div>`
+        mediaLightBox += `  </div>`
+        mediaLightBox += `</div>`
+      }
+      // Injection du nouveau code html dans le DOM
+      let idRealisations = document.querySelector('#realisations');
+      idRealisations.innerHTML = listeMedia;
+
+      let contenuLightbox = document.querySelector(".contenu-lightbox");
+      contenuLightbox.innerHTML= mediaLightBox;
+    }
+
 
     // Fonction d'incrémentation du nombre de likes des médias
     function like() {

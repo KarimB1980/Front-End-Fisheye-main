@@ -102,8 +102,12 @@ article img {
     object-fit: cover;
     border-radius:5px;
 }
-article img:hover {
+article img:hover, article video:hover {
     cursor: pointer;
+}
+
+.photograph-header article img:hover, .likes .coeur i:hover {
+    cursor:auto ;
 }
 
 article video {
@@ -321,7 +325,7 @@ form input {
     width: 30%;
 }
 
-.like:hover {
+.like:hover, .coeur:hover {
     cursor: pointer;
 }
 

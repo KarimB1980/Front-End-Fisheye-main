@@ -3,49 +3,68 @@ export function photographerFactory(data) {
 
   var p = window.location.pathname;
   // Modification du DOM de la page index.html
-  if (p.match(/^\/?index.html/)) {
+  if (!p.match(/^\/?photographer.html/)) {
 
     const { name, portrait, city, country, tagline, price, id } = data;
     const picture = `assets/photographers/${portrait}`;
 
+    // Fonction de création du DOM d'une carte d'un photographe
     function getUserCardDOM() {
+      // Création d'un élément "article"
       const article = document.createElement( 'article' );
+      // Création d'un élément "a"
       const phototitre = document.createElement('a');
+      // Création de l'url contenant l'id du photographe
       phototitre.href = `photographer.html?id=${id}`;
+      // Injection de l'aria-label du photographe dans l'élement "a" créé précédemment
       phototitre.setAttribute("aria-label", name);
-
+      // Création d'un élément "img"
       const img = document.createElement( 'img' );
+      // Injection du lien de vers l'image du photographe dans l'élement "img" créé précédemment
       img.setAttribute("src", picture);
+      // Injection du texte alternatif de l'image du photographe dans l'élement "img" créé précédemment
       img.setAttribute("alt", "");
-      //img.setAttribute("aria-label", name);
+      // Création d'un élément "h2"
       const h2 = document.createElement( 'h2' );
+      // Injection du nom photographe dans l'élément "h2" créé précédemment
       h2.textContent = name;
+      // Ajout de phototitre comme enfant de article
       article.appendChild(phototitre);
+      // Ajout de img comme enfant de phototitre
       phototitre.appendChild(img);
+      // Ajout de h2 comme enfant de phototitre
       phototitre.appendChild(h2);
-
+      // Création d'un élément "div"
       const texte = document.createElement('div');
+      // Ajout de texte comme enfant de article
       article.appendChild(texte);
+      // Création d'un élément "h3"
       const villepays = document.createElement('h3');
-
-      var a = new Array(city, country);
-      var b = a.join(", ");
-
+      // Création d'un tableua pour la ville et le pays du photographe
+      let a = new Array(city, country);
+      // Jonction de la ville et pays avec une virgule et un espace
+      let b = a.join(", ");
+      // Injection de la ville et pays avec une virgule et un espace dans "villepays"
       villepays.textContent = b;
+      // Ajout de "villepays" comme enfant de "texte"
       texte.appendChild(villepays);
-
+      // Création d'un élément "h4"
       const tag = document.createElement('h4');
+      // Injection de "tagline" dans "tag"
       tag.textContent = tagline;
+      // Ajout de "tag" comme enfant de "texte"
       texte.appendChild(tag);
-
+      // Création d'un élément "h5"
       const prix = document.createElement('h5');
-
-      var c = new Array(price, "€/jour");
-      var d = c.join("");
-
+      // Création d'un tableau pour le tarif journalier du photographe
+      let c = new Array(price,"€/jour");
+      // Jonction des valeurs du tableau "c"
+      let d = c.join("");
+      // Injection de "d" dans "textContent"
       prix.textContent = d;
+      // Ajout de "prix" comme enfant de "texte" 
       texte.appendChild(prix);
-
+      
       return (article);
     }
     return { name, picture, getUserCardDOM }
