@@ -23,7 +23,7 @@ export function photographerFactory(data) {
       // Injection du lien de vers l'image du photographe dans l'élement "img" créé précédemment
       img.setAttribute("src", picture);
       // Injection du texte alternatif de l'image du photographe dans l'élement "img" créé précédemment
-      img.setAttribute("alt", "");
+      img.setAttribute("alt", name);
       // Création d'un élément "h2"
       const h2 = document.createElement( 'h2' );
       // Injection du nom photographe dans l'élément "h2" créé précédemment
@@ -98,10 +98,10 @@ export function photographerFactory(data) {
     htmlPhotographers +=`  <div class="menu">`
     htmlPhotographers +=`    <label for="sous-menu">Trier par</label>`
     htmlPhotographers +=`      <div id="selectionTri">`
-    htmlPhotographers +=`        <button tabindex="0" class="valeur-sous-menu"><p class="valeurTriSousMenu"> Popularité <i class="fa fa-angle-down"></i></p></button>`
+    htmlPhotographers +=`        <button tabindex="0" class="valeur-sous-menu"><p class="valeurTriSousMenu"> Popularité <em class="fa fa-angle-down"></em></p></button>`
     htmlPhotographers +=`      </div>`
     htmlPhotographers +=`    <ul class="sous-menu" style="display: none">`
-    htmlPhotographers +=`      <button id="boutonPopularite" tabindex="0"><li id="popularite"><p> Popularité <i class="fa fa-angle-up" aria-hidden="true"></i></p><li></button>`
+    htmlPhotographers +=`      <button id="boutonPopularite" tabindex="0"><li id="popularite"><p> Popularité <em class="fa fa-angle-up"></em></p><li></button>`
     htmlPhotographers +=`      <hr>`
     htmlPhotographers +=`      <button id="boutonDate" tabindex="0"><li id="date">Date<li></button>`
     htmlPhotographers +=`      <hr>`
@@ -116,7 +116,7 @@ export function photographerFactory(data) {
     htmlPhotographers +=`    <div class="likes">`
     htmlPhotographers +=`      <h3 class="totalNombreLike"></h3>`
     htmlPhotographers +=`      <div class="coeur" aria-label="likes">`
-    htmlPhotographers +=`        <i class="fa-solid fa-heart"></i>`
+    htmlPhotographers +=`        <em class="fa-solid fa-heart"></em>`
     htmlPhotographers +=`      </div>`
     htmlPhotographers +=`    </div>`
     htmlPhotographers +=`    <div class="tarifJour">`

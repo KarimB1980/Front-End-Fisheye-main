@@ -275,11 +275,12 @@ form input {
     height: 50px;
 }
 
-.like i {
+.like em {
     vertical-align: middle;
     color: #901C1C;
     font-size: 1.5rem;
 }
+
 
 .like h3 {
     margin: 0;
@@ -401,6 +402,10 @@ nav {
 }
 
 .valeur-sous-menu p i {
+    padding-left: 15px;
+}
+
+.valeur-sous-menu p em {
     padding-left: 15px;
 }
 

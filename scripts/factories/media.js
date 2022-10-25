@@ -58,7 +58,7 @@ export function mediaFactory() {
       listeMediaPopularite +=             `<h3 class="nombrelike">${mediaPhotographer[i].likes}</h3>`
       listeMediaPopularite +=             `<button>`
       listeMediaPopularite +=               `<div class="coeur" aria-label="likes">`
-      listeMediaPopularite +=                 `<i class="fa-solid fa-heart"></i>`
+      listeMediaPopularite +=                 `<em class="fa-solid fa-heart"></em>`
       listeMediaPopularite +=               `</div>`
       listeMediaPopularite +=             `</button>`
       listeMediaPopularite +=           `</div>`
@@ -210,7 +210,7 @@ export function mediaFactory() {
         listeMedia +=           `<h3 class="nombrelike">${mediaPhotographer[i].likes}</h3>`;
         listeMedia +=             `<button>`
         listeMedia +=               `<div class="coeur" aria-label="likes">`;
-        listeMedia +=                 `<i class="fa-solid fa-heart"></i>`;
+        listeMedia +=                 `<em class="fa-solid fa-heart"></em>`;
         listeMedia +=               `</div>`;
         listeMedia +=             `</button>`
         listeMedia +=         `</div>`
