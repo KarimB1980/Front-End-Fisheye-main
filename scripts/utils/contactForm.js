@@ -46,7 +46,7 @@ function controleFormulaire() {
     }
   }
 
-  // Contrôle du champ E-mail
+  // Contrôle du champ E-mail en vérifiant que le format est xxxx@xxx.xxx avec une terminaison de 2 à 4 caractères
   document.getElementById('email').onchange = function email() {
     const Email = document.getElementById('email').value;
     if (/^[\w\.]+@([\w]+\.)+[\w]{2,4}$/.test(Email)) {
@@ -62,7 +62,7 @@ function controleFormulaire() {
     }
   }
 
-  // Contrôle du champ Message
+  // Contrôle que le champ Message n'est pas vide
   document.getElementById('message').onchange = function message() {
     if (document.getElementById('message').value == "") {
       // Contour de couleur bleue du champ "Message"
@@ -81,7 +81,6 @@ function controleFormulaire() {
 // Fonction de contrôle et d'envoi des valeurs du formulaire dans la console
 document.getElementById('envoyer').onclick = function (envoyer) {
   envoyer.preventDefault();
-
   if (document.getElementById('first').value == "") {
     // Contour de couleur bleue du champ "Prénom"
     document.getElementById('first').style.border="2px solid blue";
@@ -135,4 +134,3 @@ document.getElementById('envoyer').onclick = function (envoyer) {
   formulaire.push(donneesformulaire);
   console.log(formulaire);
 }
-//)

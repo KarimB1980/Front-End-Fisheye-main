@@ -1,10 +1,8 @@
-//Mettre le code JavaScript lié à la page photographer.html
-
 // Récupération de l'ID dans l'url
 let urlcourante = document.location.href;
 let url = new URL(urlcourante);
 let id = url.searchParams.get("id");
-
+// Récupération des données du photographe dans le localstorage
 let donnees = JSON.parse(localStorage.getItem("photographersMedia"));
 
 // Récupération des données des photographes
@@ -33,23 +31,25 @@ export function donneesPhotographe() {
   return ({photographe: [...photographe]})
 }
 
+// Importation de la fonction "photographerFactory" depuis le fichier "factories/photographer.js" afin de créer le code html de l'en-tête et le menu de tri, le formulaire de contact ainsi que le bloc total likes et tarif journalier pour le photographe sélectionné
 import {photographerFactory} from '../factories/photographer.js';
 
-// Fonction d'affichage des photographes
+// Fonction d'affichage des données du photographe sélectionné
 export async function displayData(photographe) {
   photographe.forEach((photographer) => {
     photographerFactory(photographer);
   });
 }
 
-// Fonction d'initialisation
+// Fonction d'initialisation de la page index.html
 export async function init() {
   // Récupère les données des photographes
   const { photographe } = donneesPhotographe();
   displayData(photographe);
 }
+// Appel de la fonction d'initialisation de la page index.html
+init();
 
-init()
-
+// Importation de la fonction "photographerFactory" depuis le fichier "factories/photographer.js" afin de créer le code html pour chaque media du photographe sélectionné
 import {mediaFactory} from '../factories/media.js';
 mediaFactory();

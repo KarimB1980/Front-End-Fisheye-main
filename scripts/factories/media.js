@@ -89,8 +89,6 @@ export function mediaFactory() {
     let contenuLightbox = document.querySelector(".contenu-lightbox")
     contenuLightbox.innerHTML= mediaLightBoxPopularite;
 
-    //----------------------------------------------------------------------------------------------------------//
-
     // Fonction d'affichage du menu déroulant
     function clicMenuDeroulant() {
       let valeurSousMenu = document.querySelector(".valeur-sous-menu");
@@ -244,7 +242,6 @@ export function mediaFactory() {
       contenuLightbox.innerHTML= mediaLightBox;
     }
 
-
     // Fonction d'incrémentation du nombre de likes des médias
     function like() {
       // Recherche de .like pour liker
@@ -282,8 +279,8 @@ export function mediaFactory() {
       )
     }
 
-    //Fonction de reconnaissance des touches flèche gauche, flèche droite et esc pour l'utilisation au clavier de la lightbox
-    function clavierLightbox() {
+    //Fonction de reconnaissance des touches flèche gauche, flèche droite et esc pour l'utilisation au clavier de la lightbox et du formulaire
+    function clavierLightboxFormulaire() {
       document.onkeydown = (evenement) => {
         evenement = evenement || window.event;
         if (evenement.key === 'ArrowLeft') {
@@ -296,6 +293,6 @@ export function mediaFactory() {
         }
       }
     }
-    clavierLightbox();
+    clavierLightboxFormulaire();
   }    
 }

@@ -14,6 +14,7 @@ function fetchPhotographersMedia() {
   })
 }
 
+// Fonction de récupération des données de chaque photographe
 async function getPhotographers() {
   // Rappel de la fonction fetch du fichier photographers.json
   fetchPhotographersMedia();
@@ -27,11 +28,10 @@ async function getPhotographers() {
   return ({photographers: [...photographers]})
 }
 
-//------------------------------------------------------------------------------------------------------------------------//
-
+// Importation de la fonction "photographerFactory" depuis le fichier "factories/photographer.js" afin de créer le code html pour chaque carte photographe
 import {photographerFactory} from '../factories/photographer.js';
 
-// Fonction d'affichage des photographes
+// Fonction d'affichage des photographes en modifiant le DOM
 async function displayData(photographers) {
   const photographersSection = document.querySelector(".photographer_section");
 
@@ -42,6 +42,7 @@ async function displayData(photographers) {
   });
 }
 
+// Fonction d'initialisation de la page index.html
 async function init() {
   //Création de l'en-tête de la page index.html
   let enteteindex = "";
@@ -61,5 +62,5 @@ async function init() {
   const { photographers } = await getPhotographers();
   displayData(photographers);
 }
-
+// Appel de la fonction d'initialisation de la page index.html
 init()
