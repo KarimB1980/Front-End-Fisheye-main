@@ -50,6 +50,6 @@ export async function init() {
 // Appel de la fonction d'initialisation de la page index.html
 init();
 
-// Importation de la fonction "photographerFactory" depuis le fichier "factories/photographer.js" afin de créer le code html pour chaque media du photographe sélectionné
+// Importation de la fonction "mediaFactory" depuis le fichier "factories/media.js" afin de créer le code html pour chaque media du photographe sélectionné
 import {mediaFactory} from '../factories/media.js';
 mediaFactory();
