@@ -90,7 +90,7 @@ export function photographerFactory(data) {
     htmlPhotographers +=`        <h3>${tagline}</h3>`
     htmlPhotographers +=`      </div>`
     htmlPhotographers +=`      <button class="contact_button" name="Contact me" onclick="displayModal()">Contactez-moi</button>`
-    htmlPhotographers +=`      <img src="assets/photographers/${portrait}" alt="">`
+    htmlPhotographers +=`      <img src="assets/photographers/${portrait}" alt="${name}">`
     htmlPhotographers +=`    </article>`
     htmlPhotographers +=`  </div>`
     htmlPhotographers +=`</main>`
@@ -132,7 +132,7 @@ export function photographerFactory(data) {
 		htmlPhotographers +=`	 <div class="modal" aria-labelledby="Contact me ${name}">`
 		htmlPhotographers +=`	   <header>`
     htmlPhotographers +=`      <h2>Contactez-moi</h2>`
-    htmlPhotographers +=`      <button id="fermerModal" aria-label="Close Contact me" onclick="closeModal()"><img src="assets/icons/close.svg"  alt="Contact Me"></button>`
+    htmlPhotographers +=`      <button id="fermerModal" tabindex="0" aria-label="Close Contact me" onclick="closeModal()"><img src="assets/icons/close.svg"  alt="Contact Me"></button>`
     htmlPhotographers +=`    </header>`
 		htmlPhotographers +=`    <form id="formulaire" role=”dialog”>`
 		htmlPhotographers +=`	     <div>`

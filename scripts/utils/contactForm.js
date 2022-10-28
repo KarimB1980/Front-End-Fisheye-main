@@ -2,8 +2,13 @@
 function displayModal() {
   const modal = document.getElementById("contact_modal");
   modal.style.display = "block";
-
   controleFormulaire();
+  focusCroixFormulaire();
+}
+
+// Fonction de focus sur la croix du formulaire
+function focusCroixFormulaire() {
+  document.getElementById("fermerModal").focus();
 }
 
 // Fonction de fermeture du formulaire
