@@ -42,7 +42,7 @@ function controleFormulaire() {
       // Contour de couleur bleue du champ "Nom"
       document.getElementById('last').style.border="2px solid blue";
       // Affichage du message d'erreur sous le champ "Nom"
-      document.querySelector("#lastMessageErreur").innerHTML = "Veuillez renseigner qu'un E-mail valide (ne comportant que des minuscules, majuscules, tirets, espaces et 2 à 100 caractères maximum).";
+      document.querySelector("#lastMessageErreur").innerHTML = "Veuillez renseigner qu'un nom valide (ne comportant que des minuscules, majuscules, tirets, espaces et 2 à 100 caractères maximum).";
     }
   }
 
